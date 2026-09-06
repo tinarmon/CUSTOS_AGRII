@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Custos Agrii — ศูนย์บัญชาการโคกหนองนาอัจฉริยะ (Minimal AgTech Platform)</title>
+  <title>Custos Agrii — แดชบอร์ดแปลงโคกหนองนาอัจฉริยะ (Glassmorphism Edition)</title>
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -13,27 +13,17 @@
       theme: {
         extend: {
           colors: {
-            zinc: {
-              50: '#fafafa',
-              100: '#f4f4f5',
-              200: '#e4e4e7',
-              300: '#d4d4d8',
-              400: '#a1a1aa',
-              500: '#71717a',
-              600: '#52525b',
-              700: '#3f3f46',
-              800: '#27272a',
-              900: '#18181b',
-              950: '#09090b',
-            },
-            botanical: {
-              50: '#f4f7f4',
-              100: '#e5ece5',
-              500: '#3b704c',
-              600: '#2e573b',
-              700: '#24432e',
-              800: '#1b3223',
-              900: '#132419',
+            emerald: {
+              50: '#ecfdf5',
+              100: '#d1fae5',
+              200: '#a7f3d0',
+              300: '#6ee7b7',
+              400: '#34d399',
+              500: '#10b981',
+              600: '#059669',
+              700: '#047857',
+              800: '#065f46',
+              900: '#064e3b',
             }
           },
           fontFamily: {
@@ -48,26 +38,128 @@
   <!-- Google Fonts: Inter & Plus Jakarta Sans + Prompt & Sarabun for Thai -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Prompt:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Prompt:wght@400;500;600;700&family=Sarabun:wght@300;400;500;600&display=swap" rel="stylesheet">
   
   <!-- Chart.js -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <style>
+    /* ==================== GLASSMORPHISM DESIGN SYSTEM ==================== */
     body {
       font-family: 'Inter', 'Sarabun', -apple-system, BlinkMacSystemFont, sans-serif;
-      letter-spacing: -0.01em;
+      background: #f0fdf4;
+      background-image: 
+        radial-gradient(at 10% 15%, rgba(52, 211, 153, 0.28) 0px, transparent 55%),
+        radial-gradient(at 88% 22%, rgba(56, 189, 248, 0.25) 0px, transparent 50%),
+        radial-gradient(at 50% 60%, rgba(251, 191, 36, 0.18) 0px, transparent 55%),
+        radial-gradient(at 85% 85%, rgba(16, 185, 129, 0.25) 0px, transparent 50%),
+        radial-gradient(at 15% 85%, rgba(14, 165, 233, 0.20) 0px, transparent 50%);
+      background-attachment: fixed;
+      background-size: cover;
+      min-height: 100vh;
+      color: #0f172a;
     }
+
     h1, h2, h3, h4, .font-heading {
       font-family: 'Plus Jakarta Sans', 'Prompt', sans-serif;
       letter-spacing: -0.02em;
     }
+
+    /* Frosted Glass Panels */
+    .glass-panel {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 10px 30px -5px rgba(16, 185, 129, 0.08), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+    }
+
+    .glass-card {
+      background: rgba(255, 255, 255, 0.70);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.88);
+      box-shadow: 0 10px 25px -4px rgba(16, 185, 129, 0.07), 0 4px 10px -2px rgba(0, 0, 0, 0.03);
+      border-radius: 1.5rem;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .glass-card:hover {
+      background: rgba(255, 255, 255, 0.85);
+      border-color: rgba(255, 255, 255, 1);
+      box-shadow: 0 16px 36px -4px rgba(16, 185, 129, 0.14), 0 6px 16px -2px rgba(0, 0, 0, 0.05);
+      transform: translateY(-2px);
+    }
+
+    .glass-header {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 4px 20px -2px rgba(16, 185, 129, 0.05);
+    }
+
+    .glass-nav {
+      background: rgba(255, 255, 255, 0.60);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.75);
+    }
+
+    .glass-tab {
+      background: rgba(255, 255, 255, 0.50);
+      border: 1px solid rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(12px);
+      color: #334155;
+      transition: all 0.2s ease;
+    }
+    .glass-tab:hover {
+      background: rgba(255, 255, 255, 0.90);
+      color: #047857;
+      border-color: rgba(16, 185, 129, 0.5);
+    }
+    .glass-tab.active {
+      background: #059669;
+      color: #ffffff;
+      border-color: #047857;
+      box-shadow: 0 6px 20px rgba(5, 150, 105, 0.28);
+    }
+
+    .glass-footer {
+      background: rgba(255, 255, 255, 0.75);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-top: 1px solid rgba(255, 255, 255, 0.85);
+      box-shadow: 0 -6px 25px -4px rgba(16, 185, 129, 0.06);
+    }
+
+    .glass-input {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      transition: all 0.2s ease;
+    }
+    .glass-input:focus {
+      background: rgba(255, 255, 255, 0.95);
+      border-color: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.2);
+    }
+
+    /* Ambient Glow Blobs */
+    .blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: -1;
+    }
+
     .custom-scroll::-webkit-scrollbar {
       width: 4px;
       height: 4px;
     }
     .custom-scroll::-webkit-scrollbar-thumb {
-      background: #e4e4e7;
+      background: rgba(16, 185, 129, 0.3);
       border-radius: 9999px;
     }
     .custom-scroll::-webkit-scrollbar-track {
@@ -75,112 +167,132 @@
     }
   </style>
 </head>
-<body class="bg-zinc-50 text-zinc-900 min-h-screen flex flex-col antialiased selection:bg-zinc-900 selection:text-white">
+<body class="min-h-screen flex flex-col antialiased selection:bg-emerald-600 selection:text-white relative">
 
-  <!-- ==================== TOP NAVIGATION BAR (MINIMAL) ==================== -->
-  <header class="h-16 border-b border-zinc-200/80 bg-white/80 backdrop-blur-md sticky top-0 z-40 px-4 sm:px-8 flex items-center justify-between transition-all">
+  <!-- Ambient Light Blobs in Background -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden -z-10">
+    <div class="blob w-96 h-96 bg-emerald-300/35 top-10 left-10"></div>
+    <div class="blob w-[500px] h-[500px] bg-sky-300/30 top-1/4 -right-20"></div>
+    <div class="blob w-[600px] h-[600px] bg-amber-200/25 bottom-10 left-1/3"></div>
+  </div>
+
+  <!-- ==================== TOP NAVIGATION BAR (GLASSMORPHISM) ==================== -->
+  <header class="h-16 glass-header sticky top-0 z-40 px-4 sm:px-8 flex items-center justify-between">
     
-    <!-- Left: Brand & Farm Selector -->
-    <div class="flex items-center gap-6">
-      <div class="flex items-center gap-2.5 cursor-pointer group" onclick="switchTab('overview')">
-        <div class="w-8 h-8 rounded-lg bg-zinc-950 flex items-center justify-center text-white text-xs font-bold tracking-tighter shadow-sm group-hover:scale-105 transition-transform">
-          CA
+    <!-- Left: Brand & User Farm Selector -->
+    <div class="flex items-center gap-4 sm:gap-6">
+      <div class="flex items-center gap-3 cursor-pointer group" onclick="switchTab('overview')">
+        <div class="w-9 h-9 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white text-base shadow-lg shadow-emerald-600/30 group-hover:scale-105 transition-transform">
+          🌱
         </div>
-        <div class="flex items-baseline gap-2">
-          <span class="font-heading font-bold text-sm tracking-tight text-zinc-950">Custos Agrii</span>
-          <span class="text-[10px] text-zinc-400 font-mono font-normal">/ โคกหนองนา</span>
+        <div>
+          <div class="flex items-center gap-1.5">
+            <span class="font-heading font-extrabold text-sm tracking-tight text-slate-900">Custos Agrii</span>
+            <span class="px-1.5 py-0.5 rounded-full bg-emerald-100/80 border border-emerald-200 text-emerald-800 text-[10px] font-bold">แปลงเกษตร</span>
+          </div>
+          <p class="text-[10px] text-slate-500 hidden sm:block">ระบบเฝ้าระวังแปลงโคกหนองนาประจำวัน</p>
         </div>
       </div>
 
-      <div class="hidden md:block h-4 w-px bg-zinc-200"></div>
+      <div class="hidden md:block h-5 w-px bg-slate-200/80"></div>
 
-      <!-- Farm Selector Dropdown -->
-      <div class="hidden md:flex items-center gap-2 text-xs text-zinc-500">
-        <span>แปลง:</span>
-        <select id="farmSelect" onchange="changeFarm(this.value)" class="bg-transparent text-zinc-900 font-medium focus:outline-none cursor-pointer border-b border-dashed border-zinc-300 hover:border-zinc-900 pb-0.5 transition">
-          <option value="farm1">สวนตาเพิ่ม โคกหนองนา (พช. CDD-CS-207) • ฉะเชิงเทรา</option>
-          <option value="farm2">ศูนย์เรียนรู้กสิกรรมธรรมชาติ อ.แปลงยาว (CDD-CS-014)</option>
-          <option value="farm3">แปลงสาธิต Young Smart Farmer โคราช (CDD-NR-088)</option>
+      <!-- Farm Plot Selector (User-specific) -->
+      <div class="hidden md:flex items-center gap-2 text-xs text-slate-600 bg-white/50 backdrop-blur-md px-3 py-1.5 rounded-xl border border-white/80">
+        <span class="text-slate-400">เลือกแปลง:</span>
+        <select id="farmSelect" onchange="changeFarm(this.value)" class="bg-transparent text-slate-900 font-semibold focus:outline-none cursor-pointer">
+          <option value="farm1">สวนตาเพิ่ม (แปลงนา & หนองน้ำหลัก) • ฉะเชิงเทรา</option>
+          <option value="farm2">โซนผลไม้ยกร่อง & พืชผัก 5 ระดับ</option>
+          <option value="farm3">โซนเล้าไก่ไข่ & ปศุสัตว์ริมคลองไส้ไก่</option>
         </select>
       </div>
     </div>
 
-    <!-- Right: Minimalist Status, Notification & User -->
-    <div class="flex items-center gap-3">
+    <!-- Right: Sensor Online Status, Weather & User Profile -->
+    <div class="flex items-center gap-2.5 sm:gap-3.5">
       
-      <!-- Sensor Status Badge -->
-      <div class="hidden lg:flex items-center gap-2 text-xs text-zinc-600 bg-zinc-100/80 px-3 py-1 rounded-full border border-zinc-200 font-medium">
+      <!-- Sensor Live Status (User-only) -->
+      <div class="hidden sm:flex items-center gap-2 text-xs text-emerald-800 bg-emerald-100/70 backdrop-blur-md px-3 py-1.5 rounded-full border border-emerald-200/80 font-medium">
         <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        <span>สถานะเซนเซอร์: <strong class="text-zinc-900">ออนไลน์ครบ 4 จุด (ปกติ)</strong></span>
+        <span>เซนเซอร์: <strong class="font-bold">ออนไลน์ครบ 4 จุด</strong></span>
       </div>
 
-      <!-- Notification Bell -->
+      <!-- Live Solar / Weather Badge -->
+      <div class="hidden lg:flex items-center gap-2 text-xs text-slate-700 bg-white/60 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/80 font-medium">
+        <span>☀️ 32°C</span>
+        <span class="text-slate-300">|</span>
+        <span class="text-emerald-700 font-bold">⚡ แบตเตอรี่ 94%</span>
+      </div>
+
+      <!-- Notification Bell with Frosted Dropdown -->
       <div class="relative">
-        <button onclick="toggleNotificationDropdown()" class="w-8 h-8 rounded-full hover:bg-zinc-100 flex items-center justify-center text-zinc-500 hover:text-zinc-900 transition relative">
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
-          <span id="notif-badge" class="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full"></span>
+        <button onclick="toggleNotificationDropdown()" class="w-9 h-9 rounded-xl bg-white/60 hover:bg-white/90 border border-white/80 flex items-center justify-center text-slate-600 hover:text-slate-900 transition relative shadow-sm">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"></path></svg>
+          <span id="notif-badge" class="absolute top-1.5 right-1.5 w-2 h-2 bg-rose-500 rounded-full animate-ping"></span>
         </button>
 
-        <!-- Dropdown -->
-        <div id="notif-dropdown" class="hidden absolute right-0 mt-2 w-72 bg-white border border-zinc-200 rounded-xl shadow-lg overflow-hidden z-50 animate-in fade-in zoom-in-95">
-          <div class="px-4 py-2.5 border-b border-zinc-100 flex justify-between items-center text-xs">
-            <span class="font-medium text-zinc-900">การแจ้งเตือน</span>
-            <span class="text-[10px] text-zinc-400 cursor-pointer hover:text-zinc-900" onclick="clearNotifs()">เคลียร์ทั้งหมด</span>
+        <!-- Frosted Glass Notification Dropdown -->
+        <div id="notif-dropdown" class="hidden absolute right-0 mt-2.5 w-80 glass-panel rounded-2xl shadow-2xl overflow-hidden z-50">
+          <div class="px-4 py-3 bg-white/70 border-b border-slate-100 flex justify-between items-center text-xs">
+            <span class="font-bold text-slate-900 font-heading">การแจ้งเตือนสดในแปลง</span>
+            <span class="text-[11px] text-emerald-700 hover:underline cursor-pointer font-medium" onclick="clearNotifs()">อ่านทั้งหมด</span>
           </div>
-          <div class="divide-y divide-zinc-100 text-xs max-h-60 overflow-y-auto custom-scroll">
-            <div class="p-3 hover:bg-zinc-50 cursor-pointer transition">
-              <div class="font-medium text-zinc-900 flex items-center justify-between">
-                <span>เสียงผิดปกติเล้าไก่ (86 dB)</span>
-                <span class="text-[9px] text-red-500 font-mono">02:15</span>
+          <div class="divide-y divide-slate-100 text-xs max-h-64 overflow-y-auto custom-scroll">
+            <div class="p-3.5 hover:bg-white/80 cursor-pointer transition">
+              <div class="flex justify-between items-center text-rose-600 font-bold">
+                <span>🚨 เสียงดังผิดปกติในเล้าไก่ (86 dB)</span>
+                <span class="text-[10px] text-slate-400 font-mono">02:15</span>
               </div>
-              <p class="text-[11px] text-zinc-500 mt-0.5">โซนโคก • สัตว์แตกตื่นยามค่ำคืน</p>
+              <p class="text-[11px] text-slate-600 mt-1">ตรวจพบสัตว์แตกตื่นยามดึก • ส่งแจ้งเตือนเข้า LINE แล้ว</p>
             </div>
-            <div class="p-3 hover:bg-zinc-50 cursor-pointer transition">
-              <div class="font-medium text-zinc-900 flex items-center justify-between">
-                <span>รอบแกล้งข้าว AWD พร้อม</span>
-                <span class="text-[9px] text-emerald-600 font-mono">เมื่อวาน</span>
+            <div class="p-3.5 hover:bg-white/80 cursor-pointer transition">
+              <div class="flex justify-between items-center text-emerald-700 font-bold">
+                <span>🌾 ถึงรอบเปิดน้ำแกล้งข้าว (AWD)</span>
+                <span class="text-[10px] text-slate-400 font-mono">เมื่อวาน</span>
               </div>
-              <p class="text-[11px] text-zinc-500 mt-0.5">โซนนา • น้ำลดถึง -15 cm แนะนำเปิดน้ำ</p>
+              <p class="text-[11px] text-slate-600 mt-1">น้ำลดถึง -15 ซม. แนะนำเปิดน้ำขัง 5 ซม. กระตุ้นรากข้าว</p>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- User Profile Pill -->
-      <button onclick="openUserModal()" class="flex items-center gap-2 pl-2 pr-3 py-1 rounded-full border border-zinc-200 hover:border-zinc-300 bg-white transition shadow-sm">
-        <div id="user-avatar" class="w-6 h-6 rounded-full bg-zinc-900 text-white font-medium flex items-center justify-center text-[10px]">
+      <!-- Farmer User Profile Pill -->
+      <button onclick="openUserModal()" class="flex items-center gap-2 pl-1.5 pr-3 py-1 rounded-full bg-white/70 hover:bg-white border border-white/90 shadow-sm transition">
+        <div id="user-avatar" class="w-7 h-7 rounded-full bg-gradient-to-tr from-emerald-600 to-teal-500 text-white font-bold flex items-center justify-center text-xs shadow-sm">
           ส
         </div>
-        <span id="user-name" class="text-xs font-medium text-zinc-800">นายสมคิด</span>
-        <svg class="w-3 h-3 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+        <div class="text-left hidden sm:block">
+          <div id="user-name" class="text-xs font-bold text-slate-900 leading-tight">ลุงสมคิด ใจดี</div>
+          <div class="text-[10px] text-slate-500 leading-none">เจ้าของแปลง</div>
+        </div>
+        <svg class="w-3.5 h-3.5 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
       </button>
 
     </div>
   </header>
 
-  <!-- ==================== SUB-NAVIGATION (MINIMAL TAB BAR) ==================== -->
-  <nav class="bg-white border-b border-zinc-200/80 px-4 sm:px-8 overflow-x-auto custom-scroll sticky top-16 z-30">
-    <div class="max-w-6xl mx-auto flex items-center gap-1 sm:gap-6 h-12 text-xs font-medium text-zinc-500">
-      <button onclick="switchTab('overview')" id="tab-btn-overview" class="tab-btn h-full border-b-2 border-zinc-950 text-zinc-950 font-semibold px-2 transition flex items-center gap-1.5 whitespace-nowrap">
-        <span>ภาพรวมแปลง</span>
+  <!-- ==================== SUB-NAVIGATION (FROSTED GLASS TABS) ==================== -->
+  <nav class="glass-nav sticky top-16 z-30 px-4 sm:px-8 py-2.5 overflow-x-auto custom-scroll">
+    <div class="max-w-6xl mx-auto flex items-center gap-2 text-xs font-medium">
+      <button onclick="switchTab('overview')" id="tab-btn-overview" class="glass-tab active px-4 py-2 rounded-xl whitespace-nowrap flex items-center gap-1.5">
+        <span>📊 ภาพรวมแปลง</span>
       </button>
-      <button onclick="switchTab('khok')" id="tab-btn-khok" class="tab-btn h-full border-b-2 border-transparent hover:text-zinc-900 px-2 transition flex items-center gap-1.5 whitespace-nowrap">
-        <span>โซนโคก (พืช/สัตว์)</span>
+      <button onclick="switchTab('nong')" id="tab-btn-nong" class="glass-tab px-4 py-2 rounded-xl whitespace-nowrap flex items-center gap-1.5">
+        <span>💧 โซนหนอง (คลังน้ำสำรอง)</span>
       </button>
-      <button onclick="switchTab('nong')" id="tab-btn-nong" class="tab-btn h-full border-b-2 border-transparent hover:text-zinc-900 px-2 transition flex items-center gap-1.5 whitespace-nowrap">
-        <span>โซนหนอง (น้ำสำรอง)</span>
+      <button onclick="switchTab('na')" id="tab-btn-na" class="glass-tab px-4 py-2 rounded-xl whitespace-nowrap flex items-center gap-1.5">
+        <span>🌾 โซนนา (แกล้งข้าว AWD)</span>
       </button>
-      <button onclick="switchTab('na')" id="tab-btn-na" class="tab-btn h-full border-b-2 border-transparent hover:text-zinc-900 px-2 transition flex items-center gap-1.5 whitespace-nowrap">
-        <span>โซนนา (แกล้งข้าว AWD)</span>
+      <button onclick="switchTab('khok')" id="tab-btn-khok" class="glass-tab px-4 py-2 rounded-xl whitespace-nowrap flex items-center gap-1.5">
+        <span>🏔️ โซนโคก (พืชผัก & ไม้ผล)</span>
       </button>
-      <button onclick="switchTab('night')" id="tab-btn-night" class="tab-btn h-full border-b-2 border-transparent hover:text-zinc-900 px-2 transition flex items-center gap-1.5 whitespace-nowrap">
-        <span>กล้องกลางคืน</span>
+      <button onclick="switchTab('night')" id="tab-btn-night" class="glass-tab px-4 py-2 rounded-xl whitespace-nowrap flex items-center gap-1.5">
+        <span>🐔 เล้าสัตว์ & กล้องกลางคืน</span>
       </button>
-      <button onclick="switchTab('telemetry')" id="tab-btn-telemetry" class="tab-btn h-full border-b-2 border-transparent hover:text-zinc-900 px-2 transition flex items-center gap-1.5 whitespace-nowrap">
-        <span>บันทึกข้อมูล</span>
+      <button onclick="switchTab('telemetry')" id="tab-btn-telemetry" class="glass-tab px-4 py-2 rounded-xl whitespace-nowrap flex items-center gap-1.5">
+        <span>📑 บันทึกข้อมูลแปลง</span>
       </button>
-      <button onclick="switchTab('settings')" id="tab-btn-settings" class="tab-btn h-full border-b-2 border-transparent hover:text-zinc-900 px-2 transition flex items-center gap-1.5 whitespace-nowrap">
-        <span>การเชื่อมต่อ LINE</span>
+      <button onclick="switchTab('settings')" id="tab-btn-settings" class="glass-tab px-4 py-2 rounded-xl whitespace-nowrap flex items-center gap-1.5">
+        <span>💬 การแจ้งเตือน LINE</span>
       </button>
     </div>
   </nav>
@@ -188,125 +300,189 @@
   <!-- ==================== MAIN WORKSPACE ==================== -->
   <main class="flex-1 max-w-6xl mx-auto w-full p-4 sm:p-8 space-y-8">
 
-    <!-- TAB 1: OVERVIEW DASHBOARD -->
+    <!-- ==================== TAB 1: OVERVIEW ==================== -->
     <div id="tab-overview" class="tab-content space-y-8">
       
-      <!-- Minimalist Header Banner -->
-      <div class="flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 pb-6 border-b border-zinc-200">
+      <!-- Hero Glass Banner for Farmer -->
+      <div class="glass-panel rounded-3xl p-6 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
           <div class="flex items-center gap-2">
-            <h1 class="font-heading text-xl sm:text-2xl font-bold text-zinc-950 tracking-tight" id="hero-farm-name">สวนตาเพิ่ม โคกหนองนา</h1>
-            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <h1 class="font-heading text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight" id="hero-farm-name">สวนตาเพิ่ม โคกหนองนา</h1>
+            <span class="px-2.5 py-0.5 rounded-full bg-emerald-100 border border-emerald-300 text-emerald-800 text-xs font-bold">เปิดใช้งาน</span>
           </div>
-          <p class="text-xs text-zinc-500 mt-1">ระบบเฝ้าระวังและบริหารจัดการน้ำ พืช และสัตว์ตลอด 24 ชั่วโมง</p>
+          <p class="text-xs sm:text-sm text-slate-600 mt-1.5">
+            ระบบตรวจวัดความชื้น ระดับน้ำ และความปลอดภัยในแปลงเกษตรตลอด 24 ชั่วโมง
+          </p>
+          <div class="flex flex-wrap items-center gap-2 mt-3 text-xs text-slate-500">
+            <span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-emerald-500"></span> สัญญาณ LoRa: ดีเยี่ยม (-78 dBm)</span>
+            <span class="text-slate-300">•</span>
+            <span>ความจุสระน้ำ: 1,840 ลบ.ม.</span>
+            <span class="text-slate-300">•</span>
+            <span>พิกัด: อ.แปลงยาว จ.ฉะเชิงเทรา</span>
+          </div>
         </div>
-        <div class="text-xs text-zinc-400 font-mono">
-          อัปเดต: วันนี้ 23:45 น. • Solar 100%
+
+        <!-- Quick Farmer Action Pills -->
+        <div class="flex flex-wrap sm:flex-col gap-2 w-full sm:w-auto">
+          <button onclick="showToast('สั่งเปิดปั๊มน้ำโซลาร์เซลล์เติมคลองไส้ไก่ 20 นาที')" class="w-full px-4 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-bold text-xs shadow-md shadow-emerald-600/30 transition flex items-center justify-center gap-2">
+            <span>🚰 เปิดน้ำเข้าคลองไส้ไก่</span>
+          </button>
+          <button onclick="showToast('เปิดไฟส่องสว่างเล้าไก่ฉุกเฉินเรียบร้อย')" class="w-full px-4 py-2 rounded-xl bg-white/80 hover:bg-white text-slate-800 font-semibold text-xs border border-white shadow-sm transition flex items-center justify-center gap-2">
+            <span>💡 เปิดไฟส่องเล้าไก่</span>
+          </button>
         </div>
       </div>
 
-      <!-- 4 Essential Metrics (Minimal Number Cards) -->
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <!-- 4 Essential Farm Metrics (Frosted Glass Cards) -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
         
-        <!-- Metric 1 -->
-        <div class="bg-white p-5 rounded-xl border border-zinc-200/80 hover:border-zinc-300 transition">
-          <span class="text-xs text-zinc-400 font-medium">ระดับน้ำในหนอง</span>
-          <div class="mt-2 flex items-baseline gap-1.5">
-            <span class="font-heading text-3xl font-bold text-zinc-900 tracking-tight">81.7</span>
-            <span class="text-xs text-zinc-400 font-normal">%</span>
+        <!-- Metric 1: Nong Water -->
+        <div class="glass-card p-5 sm:p-6 space-y-3 cursor-pointer" onclick="switchTab('nong')">
+          <div class="flex justify-between items-center text-xs font-bold text-slate-500">
+            <span>💧 ระดับน้ำในหนอง</span>
+            <span class="text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full text-[10px]">คลังน้ำ</span>
           </div>
-          <div class="mt-3 flex items-center justify-between text-[11px] text-zinc-500 border-t border-zinc-100 pt-2">
-            <span>245 ซม. / 300 ซม.</span>
-            <span class="text-emerald-700 font-medium">พอใช้ 48 วัน</span>
+          <div>
+            <div class="flex items-baseline gap-1">
+              <span class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">245</span>
+              <span class="text-xs text-slate-500 font-medium">ซม. (81.7%)</span>
+            </div>
+            <div class="w-full bg-slate-200/70 h-2 rounded-full mt-2 overflow-hidden">
+              <div class="bg-gradient-to-r from-teal-500 to-emerald-500 h-full rounded-full" style="width: 81.7%"></div>
+            </div>
           </div>
-        </div>
-
-        <!-- Metric 2 -->
-        <div class="bg-white p-5 rounded-xl border border-zinc-200/80 hover:border-zinc-300 transition">
-          <span class="text-xs text-zinc-400 font-medium">ความชื้นดินบนโคก</span>
-          <div class="mt-2 flex items-baseline gap-1.5">
-            <span class="font-heading text-3xl font-bold text-zinc-900 tracking-tight">52.4</span>
-            <span class="text-xs text-zinc-400 font-normal">%</span>
-          </div>
-          <div class="mt-3 flex items-center justify-between text-[11px] text-zinc-500 border-t border-zinc-100 pt-2">
-            <span>ความลึก 15 ซม.</span>
-            <span class="text-emerald-700 font-medium">ชุ่มชื้นเหมาะสม</span>
+          <div class="text-[11px] text-slate-600 flex justify-between pt-1 border-t border-slate-100">
+            <span>สำรองใช้ได้:</span>
+            <strong class="text-emerald-800 font-bold">48 วัน (ถึงสิ้นแล้ง)</strong>
           </div>
         </div>
 
-        <!-- Metric 3 -->
-        <div class="bg-white p-5 rounded-xl border border-zinc-200/80 hover:border-zinc-300 transition">
-          <span class="text-xs text-zinc-400 font-medium">ระดับน้ำในนา (AWD)</span>
-          <div class="mt-2 flex items-baseline gap-1.5">
-            <span class="font-heading text-3xl font-bold text-zinc-900 tracking-tight">+4.5</span>
-            <span class="text-xs text-zinc-400 font-normal">cm</span>
+        <!-- Metric 2: Na AWD Water Tube -->
+        <div class="glass-card p-5 sm:p-6 space-y-3 cursor-pointer" onclick="switchTab('na')">
+          <div class="flex justify-between items-center text-xs font-bold text-slate-500">
+            <span>🌾 แปลงนา (AWD)</span>
+            <span class="text-sky-700 bg-sky-100/80 px-2 py-0.5 rounded-full text-[10px]">แกล้งข้าว</span>
           </div>
-          <div class="mt-3 flex items-center justify-between text-[11px] text-zinc-500 border-t border-zinc-100 pt-2">
-            <span>เหนือผิวดิน</span>
-            <span class="text-zinc-700 font-medium">ระยะขังน้ำแตกกอ</span>
+          <div>
+            <div class="flex items-baseline gap-1">
+              <span class="font-heading text-3xl sm:text-4xl font-extrabold text-rose-600 tracking-tight">-15</span>
+              <span class="text-xs text-slate-500 font-medium">ซม. ใต้ดิน</span>
+            </div>
+            <p class="text-[11px] text-slate-600 mt-1">
+              ผิวดินเริ่มแตกระแหง รากข้าวหยั่งลึก
+            </p>
+          </div>
+          <div class="text-[11px] text-rose-700 bg-rose-50/80 p-2 rounded-xl border border-rose-200/60 font-bold flex items-center justify-between">
+            <span>คำแนะนำ:</span>
+            <span>เปิดน้ำขัง 5 ซม.</span>
           </div>
         </div>
 
-        <!-- Metric 4 -->
-        <div class="bg-white p-5 rounded-xl border border-zinc-200/80 hover:border-zinc-300 transition">
-          <span class="text-xs text-zinc-400 font-medium">สวัสดิภาพสัตว์ & พลังงาน</span>
-          <div class="mt-2 flex items-baseline gap-1.5">
-            <span class="font-heading text-3xl font-bold text-zinc-900 tracking-tight">42</span>
-            <span class="text-xs text-zinc-400 font-normal">dB</span>
+        <!-- Metric 3: Khok Soil Moisture -->
+        <div class="glass-card p-5 sm:p-6 space-y-3 cursor-pointer" onclick="switchTab('khok')">
+          <div class="flex justify-between items-center text-xs font-bold text-slate-500">
+            <span>🏔️ ดินโซนโคก</span>
+            <span class="text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full text-[10px]">ความชื้น</span>
           </div>
-          <div class="mt-3 flex items-center justify-between text-[11px] text-zinc-500 border-t border-zinc-100 pt-2">
-            <span>เล้าไก่ปกติ</span>
-            <span class="text-emerald-700 font-medium">แบตเตอรี่ 88%</span>
+          <div>
+            <div class="flex items-baseline gap-1">
+              <span class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">52.4</span>
+              <span class="text-xs text-slate-500 font-medium">%</span>
+            </div>
+            <p class="text-[11px] text-slate-600 mt-1">
+              ลึก 15 ซม. โคนไม้ผลและแปลงผัก
+            </p>
+          </div>
+          <div class="text-[11px] text-emerald-800 flex justify-between pt-1 border-t border-slate-100 font-medium">
+            <span>สถานะดิน:</span>
+            <strong class="font-bold">ชุ่มชื้นเหมาะสม ✅</strong>
+          </div>
+        </div>
+
+        <!-- Metric 4: Night Animal Sound Guardian -->
+        <div class="glass-card p-5 sm:p-6 space-y-3 cursor-pointer" onclick="switchTab('night')">
+          <div class="flex justify-between items-center text-xs font-bold text-slate-500">
+            <span>🐔 เสียงในเล้าสัตว์</span>
+            <span id="coop-status-badge" class="text-emerald-700 bg-emerald-100/80 px-2 py-0.5 rounded-full text-[10px]">ปลอดภัย</span>
+          </div>
+          <div>
+            <div class="flex items-baseline gap-1">
+              <span id="coop-db-val" class="font-heading text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight">42</span>
+              <span class="text-xs text-slate-500 font-medium">เดซิเบล (dB)</span>
+            </div>
+            <p class="text-[11px] text-slate-600 mt-1" id="coop-status-sub">
+              สภาวะสงบ ไม่มีเสียงแตกตื่นยามค่ำคืน
+            </p>
+          </div>
+          <div class="text-[11px] text-slate-600 flex justify-between pt-1 border-t border-slate-100">
+            <span>เกณฑ์แจ้งเตือน:</span>
+            <strong class="font-bold text-slate-800">&gt; 75 dB</strong>
           </div>
         </div>
 
       </div>
 
-      <!-- Main Layout: 7-Day Chart & LINE Notification Simulator -->
+      <!-- Main Section: 7-Day Chart & LINE Notification Simulator -->
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         
-        <!-- Left: 7-Day Trend Chart & Flow (7 Cols) -->
+        <!-- Left: 7-Day Trend Chart & Natural Ecological Cycle (7 Cols) -->
         <div class="lg:col-span-7 space-y-6">
           
-          <!-- Clean Line Chart -->
-          <div class="bg-white p-6 rounded-xl border border-zinc-200/80">
-            <div class="flex items-center justify-between mb-4">
+          <!-- Frosted Glass Chart Card -->
+          <div class="glass-card p-6 space-y-4">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
               <div>
-                <h3 class="font-heading text-sm font-semibold text-zinc-900">แนวโน้มระดับน้ำและความชื้นย้อนหลัง 7 วัน</h3>
-                <p class="text-xs text-zinc-400 mt-0.5">ข้อมูลจากโหนดเซนเซอร์ภาคสนาม (TimescaleDB)</p>
+                <h3 class="font-heading text-base font-bold text-slate-900">แนวโน้มระดับน้ำในหนอง & ความชื้นดิน (7 วัน)</h3>
+                <p class="text-xs text-slate-500">บันทึกอัตโนมัติจากเซนเซอร์ภาคสนามในแปลง</p>
               </div>
-              <div class="flex items-center gap-4 text-xs">
-                <span class="flex items-center gap-1.5 text-zinc-600"><span class="w-2 h-2 rounded-full bg-zinc-900"></span> น้ำหนอง (cm)</span>
-                <span class="flex items-center gap-1.5 text-zinc-400"><span class="w-2 h-2 rounded-full bg-zinc-300"></span> ความชื้นดิน (%)</span>
+              <div class="flex items-center gap-3 text-xs">
+                <span class="flex items-center gap-1.5 font-medium text-slate-800">
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-600"></span> น้ำในหนอง (cm)
+                </span>
+                <span class="flex items-center gap-1.5 font-medium text-sky-700">
+                  <span class="w-2.5 h-2.5 rounded-full bg-sky-500"></span> ความชื้นดิน (%)
+                </span>
               </div>
             </div>
+
             <div class="h-64 w-full">
-              <canvas id="minimalChart"></canvas>
+              <canvas id="glassChart"></canvas>
+            </div>
+
+            <div class="p-3 bg-emerald-50/70 rounded-2xl border border-emerald-200/60 text-xs text-emerald-900 flex items-start gap-2.5">
+              <span class="text-base">💡</span>
+              <p class="leading-relaxed">
+                <strong>สรุปสำหรับเกษตรกร:</strong> สัปดาห์นี้น้ำในหนองลดลงเฉลี่ย 1.2 ซม./วัน จากการระเหยและการใช้น้ำ ถือว่าอยู่ในเกณฑ์ปกติ มีน้ำสำรองเพียงพอตลอดเดือนนี้โดยไม่ต้องสูบน้ำเพิ่ม
+              </p>
             </div>
           </div>
 
-          <!-- Circular Flow (Minimal Text Layout) -->
-          <div class="bg-white p-6 rounded-xl border border-zinc-200/80">
-            <h3 class="font-heading text-sm font-semibold text-zinc-900 mb-1">สมดุลนิเวศเกษตรทฤษฎีใหม่ (Circular Flow)</h3>
-            <p class="text-xs text-zinc-400 mb-4">การเกื้อกูลกันระหว่างทรัพยากร ดิน-น้ำ-พืช-สัตว์ ตามศาสตร์พระราชา</p>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs divide-y sm:divide-y-0 sm:divide-x divide-zinc-100">
-              <div class="pt-2 sm:pt-0 sm:pr-3">
-                <span class="font-medium text-zinc-900 block mb-1">💧 หนอง ➔ โคกและนา</span>
-                <p class="text-zinc-500 leading-relaxed text-[11px]">
-                  ประเมินน้ำสำรองในหนอง ปล่อยเข้าคลองไส้ไก่ตามรอบ ลดการสูญเสียน้ำจากการระเหย
+          <!-- Natural Circular Balance (โคก-หนอง-นา) -->
+          <div class="glass-card p-6 space-y-4">
+            <h3 class="font-heading text-base font-bold text-slate-900">วงจรสมดุลน้ำและพืชผลในแปลง (Circular Farm)</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs">
+              <div class="p-4 rounded-2xl bg-white/60 border border-white/90 space-y-1.5">
+                <div class="font-bold text-slate-900 flex items-center gap-1.5 text-sm">
+                  <span>💧 โซนหนอง</span>
+                </div>
+                <p class="text-slate-600 leading-relaxed text-[11px]">
+                  เป็นคลังน้ำสำรอง จ่ายน้ำเข้าคลองไส้ไก่หล่อเลี้ยงพืชผลบนโคก และปล่อยเข้านาตามรอบ
                 </p>
               </div>
-              <div class="pt-2 sm:pt-0 sm:px-3">
-                <span class="font-medium text-zinc-900 block mb-1">🏔️ โคก ➔ ดินและสัตว์</span>
-                <p class="text-zinc-500 leading-relaxed text-[11px]">
-                  ตรวจความชื้นโคนไม้ผล เฝ้าระวังคอกสัตว์กลางคืน มูลสัตว์หมักเป็นปุ๋ยบำรุงดิน
+              <div class="p-4 rounded-2xl bg-white/60 border border-white/90 space-y-1.5">
+                <div class="font-bold text-slate-900 flex items-center gap-1.5 text-sm">
+                  <span>🏔️ โซนโคก</span>
+                </div>
+                <p class="text-slate-600 leading-relaxed text-[11px]">
+                  ปลูกป่า 3 อย่าง ประโยชน์ 4 อย่าง คลุมฟางรักษาหน้าดิน มูลไก่ไข่หมักเป็นปุ๋ยอินทรีย์
                 </p>
               </div>
-              <div class="pt-2 sm:pt-0 sm:pl-3">
-                <span class="font-medium text-zinc-900 block mb-1">🌾 นา ➔ ข้าวและฟาง</span>
-                <p class="text-zinc-500 leading-relaxed text-[11px]">
-                  แกล้งข้าว AWD ประหยัดน้ำ 30-50% ฟางข้าวหลังเกี่ยวคลุมดินรักษาความชื้นบนโคก
+              <div class="p-4 rounded-2xl bg-white/60 border border-white/90 space-y-1.5">
+                <div class="font-bold text-slate-900 flex items-center gap-1.5 text-sm">
+                  <span>🌾 โซนนา</span>
+                </div>
+                <p class="text-slate-600 leading-relaxed text-[11px]">
+                  แกล้งข้าว AWD เปียกสลับแห้ง ประหยัดน้ำ 30% ฟางข้าวหลังเก็บเกี่ยวนำไปคลุมดินบนโคก
                 </p>
               </div>
             </div>
@@ -314,57 +490,60 @@
 
         </div>
 
-        <!-- Right: LINE Notification Simulator (Minimalist Phone Design) (5 Cols) -->
+        <!-- Right: LINE Phone Simulator (User View) (5 Cols) -->
         <div class="lg:col-span-5">
-          <div class="bg-white p-6 rounded-xl border border-zinc-200/80 space-y-4">
+          <div class="glass-card p-6 space-y-4">
             
-            <div class="flex items-center justify-between pb-3 border-b border-zinc-100">
+            <div class="flex items-center justify-between pb-3 border-b border-slate-200/70">
               <div>
-                <h3 class="font-heading text-sm font-semibold text-zinc-900">ตัวจำลองข้อความ LINE</h3>
-                <p class="text-xs text-zinc-400">แจ้งเตือนเข้ามือถือเกษตรกรโดยตรง</p>
+                <h3 class="font-heading text-base font-bold text-slate-900">จำลองหน้าจอ LINE ของเกษตรกร</h3>
+                <p class="text-xs text-slate-500">ข้อความจริงที่จะส่งเข้ามือถือคุณ</p>
               </div>
-              <span class="text-[10px] font-mono bg-zinc-100 text-zinc-600 px-2 py-0.5 rounded">Live Demo</span>
+              <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[10px] font-bold">แจ้งเตือนสด</span>
             </div>
 
-            <!-- Minimalist Phone Frame -->
-            <div class="border border-zinc-200 rounded-2xl p-4 bg-zinc-50 space-y-3 min-h-[440px] flex flex-col justify-between">
+            <!-- Frosted Mobile Mockup -->
+            <div class="rounded-3xl p-4 bg-gradient-to-b from-slate-100/90 to-slate-200/90 border border-white shadow-inner space-y-3 min-h-[460px] flex flex-col justify-between">
               
-              <!-- Chat Bubble Stream -->
+              <!-- Chat Stream -->
               <div id="line-chat-stream" class="space-y-3 overflow-y-auto max-h-[340px] custom-scroll pr-1">
                 
-                <!-- Bubble 1: Daily Digest -->
-                <div class="bg-white p-4 rounded-xl border border-zinc-200/80 shadow-sm space-y-2 text-xs">
-                  <div class="flex justify-between items-center text-zinc-400 text-[10px] font-mono border-b border-zinc-100 pb-1.5">
-                    <span class="font-medium text-zinc-900">สรุปรายงานประจำวัน</span>
+                <!-- Bubble 1: Daily Farm Digest -->
+                <div class="bg-white p-4 rounded-2xl border border-slate-200/80 shadow-sm space-y-2 text-xs">
+                  <div class="flex justify-between items-center text-slate-400 text-[10px] font-mono border-b border-slate-100 pb-1.5">
+                    <span class="font-bold text-emerald-800">☀️ สรุปสภาพแปลงยามเช้า</span>
                     <span>07:00 น.</span>
                   </div>
-                  <div class="space-y-1 text-zinc-600 text-[11px]">
-                    <div class="flex justify-between"><span>ระดับน้ำหนอง:</span> <strong class="text-zinc-900 font-mono">245 ซม. (81.7%)</strong></div>
-                    <div class="flex justify-between"><span>ความชื้นดินโคก:</span> <strong class="text-zinc-900 font-mono">52.4%</strong></div>
-                    <div class="flex justify-between"><span>แกล้งข้าว AWD:</span> <strong class="text-zinc-900 font-mono">+4.5 ซม.</strong></div>
+                  <div class="space-y-1.5 text-slate-700 text-[11px]">
+                    <div class="flex justify-between"><span>ระดับน้ำในหนอง:</span> <strong class="text-slate-900 font-mono font-bold">245 ซม. (81.7%)</strong></div>
+                    <div class="flex justify-between"><span>ความชื้นดินโคก:</span> <strong class="text-slate-900 font-mono font-bold">52.4% (เหมาะสม)</strong></div>
+                    <div class="flex justify-between"><span>แปลงนาแกล้งข้าว:</span> <strong class="text-rose-600 font-mono font-bold">-15 ซม. (ถึงรอบเติมน้ำ)</strong></div>
+                    <div class="flex justify-between"><span>พลังงานโซลาร์เซลล์:</span> <strong class="text-emerald-700 font-mono font-bold">94% (แดดดี)</strong></div>
                   </div>
-                  <p class="text-[10px] text-zinc-400 pt-1 border-t border-zinc-50">
-                    สภาพอากาศปลอดโปร่ง แนะนำคลุมฟางรักษาความชื้นโคนต้นไม้
+                  <p class="text-[10px] text-slate-500 pt-1.5 border-t border-slate-100 leading-relaxed">
+                    คำแนะนำวันนี้: เปิดน้ำจากหนองเข้านาขัง 5 ซม. และคลุมฟางโคนต้นส้มโอ
                   </p>
                 </div>
 
-                <!-- Dynamic Alert Spot -->
+                <!-- Dynamic Alert Bubble -->
                 <div id="dynamic-alert-bubble"></div>
 
               </div>
 
               <!-- Interactive Simulator Buttons -->
-              <div class="pt-3 border-t border-zinc-200/80 space-y-2">
-                <span class="text-[10px] text-zinc-400 uppercase tracking-wider font-semibold block">ทดสอบกดส่งจำลองเหตุการณ์:</span>
-                <div class="grid grid-cols-3 gap-1.5 text-xs">
-                  <button onclick="demoNightAlert()" class="py-1.5 px-2 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg text-center font-medium transition text-[11px]">
-                    สัตว์บุกเล้า
+              <div class="pt-3 border-t border-slate-300/80 space-y-2">
+                <span class="text-[10px] text-slate-500 font-bold uppercase tracking-wider block">
+                  กดปุ่มทดลองส่งแจ้งเตือนเข้า LINE:
+                </span>
+                <div class="grid grid-cols-3 gap-1.5">
+                  <button onclick="demoNightAlert()" class="py-2 px-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-center font-bold transition text-xs shadow">
+                    🚨 สัตว์บุกเล้า
                   </button>
-                  <button onclick="demoDroughtAlert()" class="py-1.5 px-2 bg-white hover:bg-zinc-100 border border-zinc-200 text-zinc-800 rounded-lg text-center font-medium transition text-[11px]">
-                    เตือนน้ำลด
+                  <button onclick="demoDroughtAlert()" class="py-2 px-2 bg-amber-500 hover:bg-amber-600 text-white rounded-xl text-center font-bold transition text-xs shadow">
+                    ⚠️ น้ำหนองลด
                   </button>
-                  <button onclick="demoAwdAlert()" class="py-1.5 px-2 bg-white hover:bg-zinc-100 border border-zinc-200 text-zinc-800 rounded-lg text-center font-medium transition text-[11px]">
-                    เปิดน้ำเข้านา
+                  <button onclick="demoAwdAlert()" class="py-2 px-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-center font-bold transition text-xs shadow">
+                    🌾 เปิดน้ำเข้านา
                   </button>
                 </div>
               </div>
@@ -378,215 +557,253 @@
 
     </div>
 
-    <!-- TAB 2: KHOK ZONE (MINIMAL) -->
-    <div id="tab-khok" class="tab-content hidden space-y-6">
-      <div class="flex justify-between items-baseline pb-4 border-b border-zinc-200">
-        <div>
-          <h2 class="font-heading text-lg font-bold text-zinc-900">โซนโคก: พืชสวน ไม้ 5 ระดับ และคอกสัตว์</h2>
-          <p class="text-xs text-zinc-500 mt-0.5">โหนด NODE-KHOK-02 + กล้องอินฟราเรดเฝ้าระวังคอกสัตว์</p>
-        </div>
-        <button onclick="showToast('ส่งคำสั่งเปิดพ่นหมอกรักษาความชื้นเรียบร้อย')" class="px-3.5 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg text-xs font-medium transition">
-          เปิดพ่นหมอกโคนต้นไม้
-        </button>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="bg-white p-5 rounded-xl border border-zinc-200/80 space-y-2">
-          <span class="text-xs text-zinc-400 font-medium">ความชื้นดินระดับรากไม้ผล</span>
-          <div class="text-3xl font-heading font-bold text-zinc-900">52.4%</div>
-          <p class="text-[11px] text-zinc-500 pt-2 border-t border-zinc-100">
-            เซนเซอร์ Capacitive วัดลึก 15 ซม. • อุณหภูมิดิน 28.5°C • คลุมฟางเหมาะสม
-          </p>
-        </div>
-        <div class="bg-white p-5 rounded-xl border border-zinc-200/80 space-y-2">
-          <span class="text-xs text-zinc-400 font-medium">ระดับเสียงในเล้าไก่/คอกสัตว์</span>
-          <div class="text-3xl font-heading font-bold text-zinc-900">42 <span class="text-sm font-normal text-zinc-400">dB</span></div>
-          <p class="text-[11px] text-zinc-500 pt-2 border-t border-zinc-100">
-            สภาวะปกติ ไม่มีเสียงแตกตื่น • เกณฑ์แจ้งเตือน >75 dB • PIR ทำงาน
-          </p>
-        </div>
-        <div class="bg-white p-5 rounded-xl border border-zinc-200/80 space-y-2">
-          <span class="text-xs text-zinc-400 font-medium">สภาพอากาศจุลภาค (VPD)</span>
-          <div class="text-3xl font-heading font-bold text-zinc-900">1.2 <span class="text-sm font-normal text-zinc-400">kPa</span></div>
-          <p class="text-[11px] text-zinc-500 pt-2 border-t border-zinc-100">
-            อุณหภูมิ 31.8°C • ความชื้นสัมพัทธ์ 65% • พืชเปิดปากใบดูดซึมปุ๋ยได้ดี
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 3: NONG ZONE (MINIMAL) -->
+    <!-- ==================== TAB 2: NONG (WATER ZONE) ==================== -->
     <div id="tab-nong" class="tab-content hidden space-y-6">
-      <div class="flex justify-between items-baseline pb-4 border-b border-zinc-200">
+      <div class="glass-panel rounded-3xl p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h2 class="font-heading text-lg font-bold text-zinc-900">โซนหนอง & คลองไส้ไก่: คลังน้ำสำรอง</h2>
-          <p class="text-xs text-zinc-500 mt-0.5">โหนด NODE-NONG-01 (Ultrasonic Sensor)</p>
+          <h2 class="font-heading text-xl font-bold text-slate-900">💧 โซนหนอง & คลองไส้ไก่ (คลังน้ำสำรอง)</h2>
+          <p class="text-xs text-slate-600 mt-1">
+            ตรวจวัดระดับน้ำด้วย Ultrasonic Sensor คาดการณ์น้ำสำรองหน้าแล้ง และควบคุมการจ่ายน้ำ
+          </p>
         </div>
-        <button onclick="showToast('สั่งการเปิดปั๊มน้ำโซลาร์เซลล์เรียบร้อย')" class="px-3.5 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg text-xs font-medium transition">
+        <button onclick="showToast('สั่งการเปิดปั๊มน้ำโซลาร์เซลล์เติมคลองไส้ไก่ 20 นาที')" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition shadow-md shadow-emerald-600/30">
           เปิดปั๊มน้ำโซลาร์เซลล์
         </button>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded-xl border border-zinc-200/80 space-y-4">
-          <h3 class="font-heading text-sm font-semibold text-zinc-900">ระดับน้ำในสระ (ความลึก 3.00 เมตร)</h3>
+        <div class="glass-card p-6 space-y-4">
+          <h3 class="font-heading text-base font-bold text-slate-900">ระดับน้ำในหนองน้ำหลัก (ความลึก 3.00 ม.)</h3>
           <div class="flex items-baseline gap-3">
-            <div class="text-4xl font-heading font-bold text-zinc-900">2.45 <span class="text-lg text-zinc-400 font-normal">ม.</span></div>
-            <span class="text-xs font-mono px-2 py-0.5 rounded bg-zinc-100 text-zinc-600">กักเก็บ 81.7%</span>
+            <div class="text-4xl font-heading font-extrabold text-slate-900">2.45 <span class="text-sm font-medium text-slate-500">เมตร</span></div>
+            <span class="px-2.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-bold">กักเก็บ 81.7%</span>
           </div>
-          <div class="w-full bg-zinc-100 h-2 rounded-full overflow-hidden">
-            <div class="bg-zinc-900 h-full rounded-full" style="width: 81.7%;"></div>
+          <div class="w-full bg-slate-200 h-3 rounded-full overflow-hidden">
+            <div class="bg-gradient-to-r from-teal-500 to-emerald-600 h-full rounded-full" style="width: 81.7%;"></div>
           </div>
-          <div class="grid grid-cols-2 gap-4 text-xs text-zinc-500 pt-2 border-t border-zinc-100">
-            <div>ปริมาตรน้ำคงเหลือ: <strong class="text-zinc-900">1,840 ลบ.ม.</strong></div>
-            <div>อัตราการระเหย: <strong class="text-zinc-900">0.4 ซม./วัน</strong></div>
+          <div class="grid grid-cols-2 gap-4 text-xs text-slate-600 pt-3 border-t border-slate-100">
+            <div>ปริมาตรน้ำคงเหลือ: <strong class="text-slate-900 font-bold">1,840 ลบ.ม.</strong></div>
+            <div>อัตราการระเหย: <strong class="text-slate-900 font-bold">0.4 ซม./วัน</strong></div>
           </div>
         </div>
 
-        <div class="bg-white p-6 rounded-xl border border-zinc-200/80 space-y-3">
-          <h3 class="font-heading text-sm font-semibold text-zinc-900">พยากรณ์และการกระจายน้ำคลองไส้ไก่</h3>
-          <p class="text-xs text-zinc-500 leading-relaxed">
-            ระบบคำนวณอัตราการใช้น้ำของแปลงโคกและนาข้าว คาดการณ์ว่าน้ำในหนองจะเพียงพอสำหรับ <strong>48 วัน</strong> ซึ่งครอบคลุมจนถึงสิ้นสุดฤดูแล้ง
+        <div class="glass-card p-6 space-y-3">
+          <h3 class="font-heading text-base font-bold text-slate-900">คุณภาพน้ำและการใช้น้ำ (Water Health)</h3>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            ระบบคำนวณอัตราการใช้น้ำของแปลงโคกและแปลงนา คาดการณ์ว่าน้ำในหนองจะเพียงพอสำหรับ <strong>48 วัน</strong> ซึ่งครอบคลุมเพียงพอจนถึงฤดูฝนถัดไป
           </p>
-          <div class="p-3 bg-zinc-50 rounded-lg text-xs space-y-1.5 border border-zinc-200/60">
-            <div class="flex justify-between"><span>คลองไส้ไก่สายเหนือ:</span> <span class="font-medium text-zinc-900">น้ำไหลเวียนปกติ</span></div>
-            <div class="flex justify-between"><span>หลุมขนมครก (บ่อพักน้ำ):</span> <span class="font-medium text-zinc-900">กักตะกอนและชะลอน้ำ</span></div>
+          <div class="grid grid-cols-2 gap-2 pt-2 text-xs">
+            <div class="p-3 bg-white/60 rounded-xl border border-white/80">
+              <span class="text-slate-500 block text-[11px]">ค่าความเป็นกรด-ด่าง (pH):</span>
+              <strong class="text-emerald-800 font-bold text-sm">7.2 (ปกติ เหมาะเลี้ยงปลา)</strong>
+            </div>
+            <div class="p-3 bg-white/60 rounded-xl border border-white/80">
+              <span class="text-slate-500 block text-[11px]">ออกซิเจนละลาย (DO):</span>
+              <strong class="text-emerald-800 font-bold text-sm">6.5 mg/L (น้ำดี)</strong>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 4: NA ZONE (MINIMAL) -->
+    <!-- ==================== TAB 3: NA (AWD RICE ZONE) ==================== -->
     <div id="tab-na" class="tab-content hidden space-y-6">
-      <div class="flex justify-between items-baseline pb-4 border-b border-zinc-200">
+      <div class="glass-panel rounded-3xl p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h2 class="font-heading text-lg font-bold text-zinc-900">โซนนา: เทคนิคแกล้งข้าว (AWD)</h2>
-          <p class="text-xs text-zinc-500 mt-0.5">Alternate Wetting and Drying ประหยัดน้ำ 30-50% เพิ่มผลผลิต</p>
-        </div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded-xl border border-zinc-200/80 space-y-4">
-          <h3 class="font-heading text-sm font-semibold text-zinc-900">ระดับน้ำในท่อวัดแกล้งข้าว</h3>
-          <div class="flex items-baseline gap-3">
-            <div class="text-4xl font-heading font-bold text-zinc-900">+4.5 <span class="text-lg text-zinc-400 font-normal">cm</span></div>
-            <span class="text-xs font-mono px-2 py-0.5 rounded bg-zinc-100 text-zinc-600">เหนือผิวดิน</span>
-          </div>
-          <p class="text-xs text-zinc-500 leading-relaxed">
-            ปัจจุบันอยู่ใน <strong>ระยะเปียก (Wetting Phase)</strong> ต้นข้าวกำลังแตกกอ แนะนำให้ขังน้ำ 3-5 ซม. ยังไม่ต้องปล่อยแห้ง
+          <h2 class="font-heading text-xl font-bold text-slate-900">🌾 โซนนา: ระบบจัดการน้ำแกล้งข้าว (AWD)</h2>
+          <p class="text-xs text-slate-600 mt-1">
+            Alternate Wetting and Drying เทคนิคเปียกสลับแห้ง ประหยัดน้ำ 30-50% กระตุ้นรากข้าวหยั่งลึก
           </p>
         </div>
-
-        <div class="bg-white p-6 rounded-xl border border-zinc-200/80 space-y-3">
-          <h3 class="font-heading text-sm font-semibold text-zinc-900">รอบการจัดการน้ำตามหลักวิชาการ</h3>
-          <div class="space-y-2 text-xs text-zinc-600">
-            <div class="p-3 bg-zinc-50 rounded-lg border border-zinc-200/60">
-              <strong class="text-zinc-900 block mb-0.5">จังหวะปล่อยแห้ง:</strong>
-              ปล่อยให้น้ำลดลงจนถึง <strong>-15 ซม. ใต้ผิวดิน</strong> เพื่อให้ออกซิเจนซึมลงสู่ราก
-            </div>
-            <div class="p-3 bg-zinc-50 rounded-lg border border-zinc-200/60">
-              <strong class="text-zinc-900 block mb-0.5">จังหวะเปิดน้ำขัง:</strong>
-              เมื่อถึง -15 ซม. ให้เปิดน้ำจากหนองเข้านาขัง <strong>5 ซม.</strong> แล้วปิดทางน้ำ
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- TAB 5: NIGHT GUARDIAN CCTV (MINIMAL) -->
-    <div id="tab-night" class="tab-content hidden space-y-6">
-      <div class="flex justify-between items-baseline pb-4 border-b border-zinc-200">
-        <div>
-          <h2 class="font-heading text-lg font-bold text-zinc-900">กล้องเฝ้าระวังกลางคืน 24 ชม. (Night Guardian)</h2>
-          <p class="text-xs text-zinc-500 mt-0.5">ตรวจจับความเคลื่อนไหว (PIR) และเสียงแตกตื่นในความมืด</p>
-        </div>
+        <button onclick="showToast('บันทึกรอบเปิดน้ำเข้านา 5 ซม. เรียบร้อย')" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition shadow-md shadow-emerald-600/30">
+          บันทึกการเปิดน้ำเข้านา
+        </button>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Feed 1 -->
-        <div class="bg-white rounded-xl border border-zinc-200/80 overflow-hidden">
-          <div class="p-4 border-b border-zinc-100 flex justify-between items-center text-xs">
-            <span class="font-semibold text-zinc-900">CAM-01: เล้าไก่ไข่ (โซนโคก)</span>
-            <span class="text-emerald-600 font-mono text-[10px]">● LIVE IR</span>
+        <div class="glass-card p-6 space-y-4">
+          <h3 class="font-heading text-base font-bold text-slate-900">ระดับน้ำในท่อ PVC วัดแกล้งข้าว</h3>
+          <div class="flex items-baseline gap-3">
+            <div class="text-4xl font-heading font-extrabold text-rose-600">-15.0 <span class="text-sm font-medium text-slate-500">ซม.</span></div>
+            <span class="px-2.5 py-1 rounded-full bg-rose-100 text-rose-800 text-xs font-bold">ถึงเวลาเติมน้ำ</span>
           </div>
-          <div class="bg-zinc-900 h-56 flex flex-col items-center justify-center text-zinc-400 text-xs font-mono space-y-2">
-            <span class="text-2xl">🐔</span>
-            <span>INFRARED 850nm ACTIVE</span>
-            <span class="text-[10px] text-zinc-500">ระดับเสียง: 42 dB (ปกติ)</span>
+          <p class="text-xs text-slate-600 leading-relaxed">
+            ปัจจุบันน้ำลดลงถึงขีด <strong>-15 ซม. ใต้ผิวดิน</strong> รากข้าวหยั่งลึกหาอาหารเต็มที่แล้ว ตอนนี้ต้องเปิดน้ำจากหนองเข้าแปลงนาขัง 5 ซม. เพื่อกระตุ้นการแตกกอ
+          </p>
+          <div class="p-3 bg-emerald-50 rounded-xl border border-emerald-200/80 text-xs text-emerald-900 font-medium">
+            ✅ ขั้นตอนปฏิบัติ: เปิดประตูกั้นน้ำคลองไส้ไก่ ปล่อยน้ำเข้านาจนท่วม 5 ซม. แล้วปิดทางน้ำ
           </div>
         </div>
 
-        <!-- Feed 2 -->
-        <div class="bg-white rounded-xl border border-zinc-200/80 overflow-hidden">
-          <div class="p-4 border-b border-zinc-100 flex justify-between items-center text-xs">
-            <span class="font-semibold text-zinc-900">CAM-02: สระน้ำ & คลองไส้ไก่ (โซนหนอง)</span>
-            <span class="text-emerald-600 font-mono text-[10px]">● LIVE IR</span>
-          </div>
-          <div class="bg-zinc-900 h-56 flex flex-col items-center justify-center text-zinc-400 text-xs font-mono space-y-2">
-            <span class="text-2xl">💧</span>
-            <span>INFRARED 850nm ACTIVE</span>
-            <span class="text-[10px] text-zinc-500">ระดับน้ำ: 245.2 cm (ปลอดภัย)</span>
+        <div class="glass-card p-6 space-y-3">
+          <h3 class="font-heading text-base font-bold text-slate-900">หลักการแกล้งข้าวตามวิชาการ</h3>
+          <div class="space-y-2 text-xs text-slate-700">
+            <div class="p-3 bg-white/70 rounded-xl border border-white">
+              <strong class="text-slate-900 block mb-1">1. ระยะแกล้งข้าว (ปล่อยแห้ง):</strong>
+              ปล่อยให้น้ำแห้งลดลงถึง -15 ซม. ใต้ผิวดิน ช่วยให้อากาศซึมลงดิน รากข้าวไม่เน่า และลดการปล่อยก๊าซมีเทน
+            </div>
+            <div class="p-3 bg-white/70 rounded-xl border border-white">
+              <strong class="text-slate-900 block mb-1">2. ระยะขังน้ำ (เปียก):</strong>
+              เมื่อถึง -15 ซม. ให้สูบหรือเปิดน้ำเข้านาขัง 5 ซม. ประมาณ 7-10 วัน แล้วปล่อยให้แห้งอีกรอบ
+            </div>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- TAB 6: TELEMETRY LOGS (MINIMAL) -->
-    <div id="tab-telemetry" class="tab-content hidden space-y-6">
-      <div class="flex flex-col sm:flex-row justify-between items-start sm:items-baseline gap-3 pb-4 border-b border-zinc-200">
+    <!-- ==================== TAB 4: KHOK (FRUITS & VEGGIES) ==================== -->
+    <div id="tab-khok" class="tab-content hidden space-y-6">
+      <div class="glass-panel rounded-3xl p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h2 class="font-heading text-lg font-bold text-zinc-900">บันทึกข้อมูล Telemetry ย้อนหลัง</h2>
-          <p class="text-xs text-zinc-500 mt-0.5">บันทึกทุก 15 นาทีจากเซนเซอร์ภาคสนาม</p>
+          <h2 class="font-heading text-xl font-bold text-slate-900">🏔️ โซนโคก: ไม้ผล แปลงผัก 5 ระดับ</h2>
+          <p class="text-xs text-slate-600 mt-1">
+            ตรวจวัดความชื้นในดินลึก 15 ซม. ควบคุมระบบน้ำหยดและสปริงเกลอร์พลังงานแสงอาทิตย์
+          </p>
+        </div>
+        <button onclick="showToast('เปิดสปริงเกลอร์รดน้ำแปลงผัก 10 นาที')" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition shadow-md shadow-emerald-600/30">
+          เปิดสปริงเกลอร์รดน้ำ
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="glass-card p-5 space-y-2">
+          <span class="text-xs text-slate-500 font-bold">ความชื้นดินระดับรากพืช</span>
+          <div class="text-3xl font-heading font-extrabold text-slate-900">52.4%</div>
+          <p class="text-[11px] text-slate-600 pt-2 border-t border-slate-100">
+            วัดลึก 15 ซม. อุณหภูมิดิน 28.5°C • มีการคลุมฟางหนาแน่นดี ความชื้นไม่ระเหย
+          </p>
+        </div>
+        <div class="glass-card p-5 space-y-2">
+          <span class="text-xs text-slate-500 font-bold">สภาพอากาศจุลภาค (อุณหภูมิ/แสง)</span>
+          <div class="text-3xl font-heading font-extrabold text-slate-900">31.8 <span class="text-base font-normal text-slate-500">°C</span></div>
+          <p class="text-[11px] text-slate-600 pt-2 border-t border-slate-100">
+            ความเข้มแสง 850 W/m² • ความชื้นในอากาศ 65% • พืชสังเคราะห์แสงได้ดี
+          </p>
+        </div>
+        <div class="glass-card p-5 space-y-2">
+          <span class="text-xs text-slate-500 font-bold">สถานะปั๊มน้ำโซลาร์เซลล์</span>
+          <div class="text-3xl font-heading font-extrabold text-emerald-700">พร้อมใช้งาน</div>
+          <p class="text-[11px] text-slate-600 pt-2 border-t border-slate-100">
+            แรงดันไฟ 18.2V • แบตเตอรี่ LiFePO4 สำรองพร้อมจ่ายไฟได้ตลอด 24 ชั่วโมง
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 5: NIGHT GUARDIAN (ANIMAL COOP) ==================== -->
+    <div id="tab-night" class="tab-content hidden space-y-6">
+      <div class="glass-panel rounded-3xl p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 class="font-heading text-xl font-bold text-slate-900">🐔 เล้าสัตว์ & กล้องเฝ้าระวังกลางคืน (Night Guardian)</h2>
+          <p class="text-xs text-slate-600 mt-1">
+            ตรวจจับเสียงผิดปกติและความเคลื่อนไหวในเล้าไก่ ป้องกันงู ตัวเงินตัวทอง และสัตว์นักล่าบุกรุก
+          </p>
+        </div>
+        <button onclick="showToast('เปิดไฟส่องสว่างไล่สัตว์นักล่าเรียบร้อย')" class="px-4 py-2 bg-rose-600 hover:bg-rose-700 text-white rounded-xl text-xs font-bold transition shadow-md shadow-rose-600/30">
+          💡 สั่งเปิดไฟไล่สัตว์
+        </button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Live IR Simulated Cam 1 -->
+        <div class="glass-card overflow-hidden">
+          <div class="p-4 border-b border-slate-100 flex justify-between items-center text-xs font-bold">
+            <span class="text-slate-900">CAM-01: เล้าไก่ไข่อารมณ์ดี (โซนโคก)</span>
+            <span class="text-emerald-700 flex items-center gap-1 font-mono text-[11px]">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> LIVE IR
+            </span>
+          </div>
+          <div class="bg-slate-900 h-56 flex flex-col items-center justify-center text-slate-400 text-xs font-mono space-y-2 relative">
+            <span class="text-4xl">🐔</span>
+            <span class="text-emerald-400 font-bold">INFRARED NIGHT VISION ACTIVE</span>
+            <span class="text-[11px] text-slate-400">ระดับเสียงปัจจุบัน: 42 dB (ปกติ)</span>
+            <div class="absolute bottom-2 right-3 text-[10px] text-slate-500">FPS: 15 • ESP32-CAM</div>
+          </div>
+        </div>
+
+        <!-- Live IR Simulated Cam 2 -->
+        <div class="glass-card overflow-hidden">
+          <div class="p-4 border-b border-slate-100 flex justify-between items-center text-xs font-bold">
+            <span class="text-slate-900">CAM-02: หนองน้ำ & ทางน้ำเข้าแปลงนา</span>
+            <span class="text-emerald-700 flex items-center gap-1 font-mono text-[11px]">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> LIVE IR
+            </span>
+          </div>
+          <div class="bg-slate-900 h-56 flex flex-col items-center justify-center text-slate-400 text-xs font-mono space-y-2 relative">
+            <span class="text-4xl">💧</span>
+            <span class="text-emerald-400 font-bold">INFRARED NIGHT VISION ACTIVE</span>
+            <span class="text-[11px] text-slate-400">ระดับน้ำ: 245.2 cm (ปลอดภัย)</span>
+            <div class="absolute bottom-2 right-3 text-[10px] text-slate-500">FPS: 15 • ESP32-CAM</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== TAB 6: TELEMETRY (FARM LOGS) ==================== -->
+    <div id="tab-telemetry" class="tab-content hidden space-y-6">
+      <div class="glass-panel rounded-3xl p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+        <div>
+          <h2 class="font-heading text-xl font-bold text-slate-900">📑 บันทึกข้อมูลแปลงเกษตรย้อนหลัง</h2>
+          <p class="text-xs text-slate-600 mt-1">ข้อมูลค่าที่วัดได้จากเซนเซอร์ทุกจุดในแปลง บันทึกทุก 15 นาที</p>
         </div>
         <div class="flex items-center gap-2">
-          <input type="text" id="logSearch" onkeyup="filterLogs()" placeholder="ค้นหาข้อมูล..." class="bg-white border border-zinc-200 rounded-lg px-3 py-1.5 text-xs text-zinc-800 focus:outline-none focus:border-zinc-900 transition">
-          <button onclick="showToast('ดาวน์โหลดไฟล์ CSV สำเร็จ')" class="px-3 py-1.5 bg-zinc-900 text-white rounded-lg text-xs font-medium hover:bg-zinc-800 transition">
+          <input type="text" id="logSearch" onkeyup="filterLogs()" placeholder="ค้นหาบันทึก..." class="glass-input rounded-xl px-3 py-1.5 text-xs text-slate-800 focus:outline-none">
+          <button onclick="showToast('ดาวน์โหลดไฟล์ข้อมูล CSV เรียบร้อย')" class="px-3.5 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition">
             ส่งออก CSV
           </button>
         </div>
       </div>
 
-      <div class="bg-white rounded-xl border border-zinc-200/80 overflow-hidden">
+      <div class="glass-card overflow-hidden">
         <div class="overflow-x-auto">
-          <table class="w-full text-left text-xs text-zinc-700" id="telemetryTable">
-            <thead class="bg-zinc-50 text-zinc-400 font-mono text-[10px] border-b border-zinc-200/80 uppercase">
+          <table class="w-full text-left text-xs text-slate-700" id="telemetryTable">
+            <thead class="bg-white/80 text-slate-500 font-bold text-[11px] border-b border-slate-200">
               <tr>
-                <th class="p-3.5">เวลาที่บันทึก</th>
-                <th class="p-3.5">รหัสโหนด</th>
-                <th class="p-3.5">โซน</th>
-                <th class="p-3.5">ระดับน้ำ (cm)</th>
-                <th class="p-3.5">ความชื้นดิน (%)</th>
-                <th class="p-3.5">แบตเตอรี่</th>
-                <th class="p-3.5">สถานะ</th>
+                <th class="p-4">เวลาที่บันทึก</th>
+                <th class="p-4">จุดติดตั้ง</th>
+                <th class="p-4">โซน</th>
+                <th class="p-4">ระดับน้ำ (cm)</th>
+                <th class="p-4">ความชื้นดิน (%)</th>
+                <th class="p-4">แบตเตอรี่</th>
+                <th class="p-4">สถานะ</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-zinc-100 font-mono text-[11px]" id="tableBody">
-              <tr class="hover:bg-zinc-50/80">
-                <td class="p-3.5 text-zinc-500">2026-09-06 23:45</td>
-                <td class="p-3.5 font-bold text-zinc-900">NODE-NONG-01</td>
-                <td class="p-3.5 font-sans">หนอง</td>
-                <td class="p-3.5">245.2</td>
-                <td class="p-3.5 text-zinc-300">-</td>
-                <td class="p-3.5">88% (3.28V)</td>
-                <td class="p-3.5 font-sans"><span class="text-emerald-700 font-medium">ปกติ</span></td>
+            <tbody class="divide-y divide-slate-100 font-mono text-[11px]" id="tableBody">
+              <tr class="hover:bg-white/80">
+                <td class="p-4 text-slate-600">วันนี้ 07:00</td>
+                <td class="p-4 font-bold text-slate-900">NODE-NONG-01</td>
+                <td class="p-4 font-sans">หนองน้ำหลัก</td>
+                <td class="p-4 font-bold text-emerald-800">245.2</td>
+                <td class="p-4 text-slate-300">-</td>
+                <td class="p-4">94%</td>
+                <td class="p-4 font-sans"><span class="text-emerald-700 font-bold">ปกติ</span></td>
               </tr>
-              <tr class="hover:bg-zinc-50/80">
-                <td class="p-3.5 text-zinc-500">2026-09-06 23:45</td>
-                <td class="p-3.5 font-bold text-zinc-900">NODE-KHOK-02</td>
-                <td class="p-3.5 font-sans">โคก</td>
-                <td class="p-3.5 text-zinc-300">-</td>
-                <td class="p-3.5">52.4</td>
-                <td class="p-3.5">85% (3.25V)</td>
-                <td class="p-3.5 font-sans"><span class="text-emerald-700 font-medium">ปกติ</span></td>
+              <tr class="hover:bg-white/80">
+                <td class="p-4 text-slate-600">วันนี้ 07:00</td>
+                <td class="p-4 font-bold text-slate-900">NODE-NA-03</td>
+                <td class="p-4 font-sans">แปลงนา AWD</td>
+                <td class="p-4 font-bold text-rose-600">-15.0</td>
+                <td class="p-4 text-slate-300">-</td>
+                <td class="p-4">91%</td>
+                <td class="p-4 font-sans"><span class="text-rose-700 font-bold">รอเติมน้ำ</span></td>
               </tr>
-              <tr class="hover:bg-zinc-50/80">
-                <td class="p-3.5 text-zinc-500">2026-09-06 23:30</td>
-                <td class="p-3.5 font-bold text-zinc-900">NODE-NONG-01</td>
-                <td class="p-3.5 font-sans">หนอง</td>
-                <td class="p-3.5">245.4</td>
-                <td class="p-3.5 text-zinc-300">-</td>
-                <td class="p-3.5">88% (3.28V)</td>
-                <td class="p-3.5 font-sans"><span class="text-emerald-700 font-medium">ปกติ</span></td>
+              <tr class="hover:bg-white/80">
+                <td class="p-4 text-slate-600">วันนี้ 07:00</td>
+                <td class="p-4 font-bold text-slate-900">NODE-KHOK-02</td>
+                <td class="p-4 font-sans">โคนไม้ผล</td>
+                <td class="p-4 text-slate-300">-</td>
+                <td class="p-4 font-bold text-emerald-800">52.4</td>
+                <td class="p-4">93%</td>
+                <td class="p-4 font-sans"><span class="text-emerald-700 font-bold">ปกติ</span></td>
+              </tr>
+              <tr class="hover:bg-white/80">
+                <td class="p-4 text-slate-600">เมื่อคืน 02:15</td>
+                <td class="p-4 font-bold text-slate-900">NODE-COOP-04</td>
+                <td class="p-4 font-sans">เล้าไก่ไข่</td>
+                <td class="p-4 text-slate-300">-</td>
+                <td class="p-4 text-slate-300">-</td>
+                <td class="p-4">88%</td>
+                <td class="p-4 font-sans"><span class="text-rose-600 font-bold">เสียงแตกตื่น (86 dB)</span></td>
               </tr>
             </tbody>
           </table>
@@ -594,51 +811,56 @@
       </div>
     </div>
 
-    <!-- TAB 7: SETTINGS (MINIMAL) -->
+    <!-- ==================== TAB 7: SETTINGS (LINE NOTIFY) ==================== -->
     <div id="tab-settings" class="tab-content hidden space-y-6">
-      <div class="flex justify-between items-baseline pb-4 border-b border-zinc-200">
+      <div class="glass-panel rounded-3xl p-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
         <div>
-          <h2 class="font-heading text-lg font-bold text-zinc-900">การเชื่อมต่อ LINE Official Account</h2>
-          <p class="text-xs text-zinc-500 mt-0.5">ตั้งค่า Webhook และเกณฑ์การแจ้งเตือนอัตโนมัติ</p>
+          <h2 class="font-heading text-xl font-bold text-slate-900">💬 การตั้งค่าแจ้งเตือนผ่าน LINE</h2>
+          <p class="text-xs text-slate-600 mt-1">กำหนดเกณฑ์เตือนภัยเสียงผิดปกติและระดับน้ำสำหรับส่งเข้า LINE เกษตรกร</p>
         </div>
-        <button onclick="showToast('บันทึกการตั้งค่าเรียบร้อย')" class="px-3.5 py-1.5 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg text-xs font-medium transition">
+        <button onclick="showToast('บันทึกการตั้งค่าเกณฑ์เตือนภัยเรียบร้อย')" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition shadow-md shadow-emerald-600/30">
           บันทึกการตั้งค่า
         </button>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-white p-6 rounded-xl border border-zinc-200/80 space-y-4">
-          <h3 class="font-heading text-sm font-semibold text-zinc-900">สถานะ Webhook Messaging API</h3>
+        <div class="glass-card p-6 space-y-4">
+          <h3 class="font-heading text-base font-bold text-slate-900">สถานะการเชื่อมต่อ LINE Notify / OA</h3>
           <div class="space-y-3 text-xs">
             <div>
-              <label class="text-zinc-500 block mb-1">Webhook Endpoint URL:</label>
-              <input type="text" readonly value="https://api.custosagrii.com/v1/line/webhook" class="w-full bg-zinc-50 border border-zinc-200 rounded-lg p-2 font-mono text-zinc-700 text-[11px]">
+              <label class="text-slate-600 block mb-1">เบอร์โทรศัพท์ที่ผูกไว้:</label>
+              <input type="text" readonly value="081-987-XXXX (ลุงสมคิด)" class="glass-input w-full rounded-xl p-2.5 font-mono text-slate-800">
             </div>
-            <div class="flex items-center justify-between p-3 bg-zinc-50 rounded-lg border border-zinc-200">
-              <span class="text-zinc-600">สถานะ: <strong class="text-emerald-700">เชื่อมต่อแล้ว (200 OK)</strong></span>
-              <button onclick="showToast('ส่งข้อความทดสอบเข้า LINE เรียบร้อย')" class="px-2.5 py-1 bg-white border border-zinc-300 hover:border-zinc-900 rounded text-xs font-medium transition">
+            <div class="flex items-center justify-between p-3.5 bg-white/70 rounded-2xl border border-white">
+              <div>
+                <span class="text-slate-600 block text-[11px]">สถานะบัญชี:</span>
+                <strong class="text-emerald-700 text-sm font-bold">🟢 เชื่อมต่อกับ LINE แล้ว</strong>
+              </div>
+              <button onclick="showToast('ส่งข้อความทดสอบเข้า LINE เรียบร้อย')" class="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl text-xs font-bold transition">
                 ทดสอบส่ง
               </button>
             </div>
           </div>
         </div>
 
-        <div class="bg-white p-6 rounded-xl border border-zinc-200/80 space-y-4">
-          <h3 class="font-heading text-sm font-semibold text-zinc-900">เกณฑ์เตือนภัย (Alert Thresholds)</h3>
+        <div class="glass-card p-6 space-y-4">
+          <h3 class="font-heading text-base font-bold text-slate-900">ปรับตั้งเกณฑ์เตือนภัยอัตโนมัติ</h3>
           <div class="space-y-4 text-xs">
             <div>
-              <div class="flex justify-between text-zinc-700 mb-1">
-                <span>ระดับเสียงเตือนภัยคอกสัตว์:</span>
-                <strong class="font-mono text-zinc-900" id="decibel-val">75 dB</strong>
+              <div class="flex justify-between text-slate-700 mb-1">
+                <span>ระดับเสียงเตือนภัยเล้าไก่ (กลางคืน):</span>
+                <strong class="font-mono text-slate-900 font-bold text-sm" id="decibel-val">75 dB</strong>
               </div>
-              <input type="range" min="60" max="100" value="75" oninput="document.getElementById('decibel-val').innerText = this.value + ' dB'" class="w-full accent-zinc-900">
+              <input type="range" min="60" max="100" value="75" oninput="document.getElementById('decibel-val').innerText = this.value + ' dB'" class="w-full accent-emerald-600 cursor-pointer">
+              <span class="text-[10px] text-slate-500">ถ้าเสียงดังเกินค่านี้ระบบจะส่งข้อความแจ้งเตือนทันที</span>
             </div>
             <div>
-              <div class="flex justify-between text-zinc-700 mb-1">
+              <div class="flex justify-between text-slate-700 mb-1">
                 <span>ระดับน้ำหนองขั้นวิกฤต (เตือนแล้ง):</span>
-                <strong class="font-mono text-zinc-900" id="water-val">80 cm</strong>
+                <strong class="font-mono text-slate-900 font-bold text-sm" id="water-val">80 cm</strong>
               </div>
-              <input type="range" min="30" max="150" value="80" oninput="document.getElementById('water-val').innerText = this.value + ' cm'" class="w-full accent-zinc-900">
+              <input type="range" min="30" max="150" value="80" oninput="document.getElementById('water-val').innerText = this.value + ' cm'" class="w-full accent-emerald-600 cursor-pointer">
+              <span class="text-[10px] text-slate-500">เตือนเมื่อน้ำในหนองเหลือต่ำกว่าเกณฑ์</span>
             </div>
           </div>
         </div>
@@ -647,101 +869,113 @@
 
   </main>
 
-  <!-- ==================== MINIMAL FOOTER / FOOTBAR ==================== -->
-  <footer class="bg-white border-t border-zinc-200 mt-16 py-10 text-zinc-500 text-xs">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-zinc-100">
-        <div>
-          <div class="flex items-center gap-2 text-zinc-900 font-semibold mb-2">
-            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
-            <span>CUSTOS AGRII</span>
+  <!-- ==================== GLASSMORPHISM FOOTBAR (FROSTED FOOTER) ==================== -->
+  <footer class="glass-footer mt-16 pt-10 pb-8 text-slate-600 text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-8">
+      
+      <!-- 3 Columns for Farmer Focus -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-slate-200/80">
+        
+        <!-- Col 1: Platform & Farm Info -->
+        <div class="space-y-2">
+          <div class="flex items-center gap-2.5">
+            <div class="w-8 h-8 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-700 flex items-center justify-center text-white text-sm shadow">
+              🌱
+            </div>
+            <div>
+              <span class="font-heading font-extrabold text-sm text-slate-900">Custos Agrii</span>
+              <span class="text-[10px] text-emerald-800 font-semibold block">ระบบดูแลแปลงโคกหนองนาพึ่งพาตนเอง</span>
+            </div>
           </div>
-          <p class="text-zinc-500 leading-relaxed text-[11px]">
-            ระบบเฝ้าระวังและเตือนภัยโคกหนองนาอัจฉริยะ ต้นทุนต่ำเพื่อเกษตรกรไทย (ESP32 + Solar IoT)
+          <p class="text-slate-600 text-[11px] leading-relaxed pt-1">
+            แดชบอร์ดเฝ้าระวังแปลงเกษตรอัจฉริยะ ออกแบบเพื่อให้เกษตรกรติดตามระดับน้ำ ความชื้น และความปลอดภัยได้ง่ายผ่านมือถือตลอด 24 ชม.
           </p>
         </div>
-        <div>
-          <div class="text-zinc-900 font-semibold mb-2">สถานะฮาร์ดแวร์</div>
-          <ul class="space-y-1 text-[11px]">
-            <li>• โหนดบ่อหนอง: 🟢 ปกติ (245 cm)</li>
-            <li>• โหนดแปลงนา: 🟢 ปกติ (-15 cm)</li>
-            <li>• โหนดเล้าไก่: 🟢 เฝ้าระวัง (42 dB)</li>
+
+        <!-- Col 2: Farm Hardware Status -->
+        <div class="space-y-2">
+          <h4 class="font-heading font-bold text-slate-900 text-xs flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+            สถานะอุปกรณ์ในแปลงนี้
+          </h4>
+          <ul class="space-y-1.5 text-[11px]">
+            <li class="flex justify-between"><span>• โหนดหนองน้ำ (Ultrasonic):</span> <strong class="text-emerald-800">🟢 245 cm</strong></li>
+            <li class="flex justify-between"><span>• โหนดแปลงนา (AWD Tube):</span> <strong class="text-rose-700">🟢 -15 cm</strong></li>
+            <li class="flex justify-between"><span>• โหนดโคก (Soil Moisture):</span> <strong class="text-emerald-800">🟢 52.4%</strong></li>
+            <li class="flex justify-between"><span>• โหนดเล้าไก่ (Night Cam):</span> <strong class="text-emerald-800">🟢 42 dB</strong></li>
           </ul>
         </div>
-        <div>
-          <div class="text-zinc-900 font-semibold mb-2">ข้อมูลขับเคลื่อนระดับประเทศ</div>
-          <p class="text-[11px] text-zinc-500 mb-1">
-            พร้อมขยายผล <strong>41,798 แปลงต้นแบบ</strong> (พช. มท.)
+
+        <!-- Col 3: Plot Details & Help -->
+        <div class="space-y-2">
+          <h4 class="font-heading font-bold text-slate-900 text-xs flex items-center gap-1.5">
+            <span class="w-2 h-2 rounded-full bg-sky-500"></span>
+            ข้อมูลแปลง & ความช่วยเหลือ
+          </h4>
+          <p class="text-[11px] text-slate-600 leading-relaxed">
+            แปลง: <strong>สวนตาเพิ่ม โคกหนองนา</strong><br>
+            ที่ตั้ง: ต.แปลงยาว อ.แปลงยาว จ.ฉะเชิงเทรา<br>
+            ช่องทางแจ้งเตือน: LINE Official Account
           </p>
-          <a href="https://chachoengsao.cdd.go.th/th/file/get/file/207.2025121133f374b63d4fae40e3f919c9857696f5161742.pdf" target="_blank" rel="noopener noreferrer" class="text-zinc-900 underline text-[11px]">
-            ดาวน์โหลดเอกสารอ้างอิง พช. (PDF)
-          </a>
+          <div class="pt-1 flex items-center gap-3 text-[11px]">
+            <button onclick="openUserModal()" class="text-emerald-700 font-bold hover:underline">สลับบทบาทผู้ใช้</button>
+            <span class="text-slate-300">•</span>
+            <button onclick="showToast('เปิดคู่มือการใช้งานสำหรับเกษตรกร')" class="text-slate-600 hover:text-slate-900">คู่มือชาวบ้าน</button>
+          </div>
         </div>
+
       </div>
-      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-zinc-400">
-        <span>© 2026 Custos Agrii • โคก หนอง นา Edition</span>
+
+      <!-- Bottom Sub-Footer -->
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-[11px] text-slate-500">
+        <div>
+          <span>© 2026 Custos Agrii • โคกหนองนาโมเดล เพื่อเกษตรกรไทยพึ่งพาตนเอง</span>
+        </div>
         <div class="flex items-center gap-4">
-          <a href="https://github.com/tinarmon/CUSTOS_AGRII" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900">GitHub</a>
-          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="hover:text-zinc-900">ขึ้นบนสุด ↑</button>
+          <span class="text-emerald-700 font-medium">● แดชบอร์ดพร้อมใช้งาน (Live Mockup)</span>
+          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="text-slate-700 hover:text-slate-900 font-bold">
+            ขึ้นบนสุด ↑
+          </button>
         </div>
       </div>
+
     </div>
   </footer>
 
-  <!-- ==================== USER MODAL (MINIMAL) ==================== -->
-  <div id="user-modal" class="fixed inset-0 bg-zinc-950/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
-    <div class="bg-white border border-zinc-200 rounded-2xl max-w-sm w-full overflow-hidden shadow-xl animate-in fade-in zoom-in-95">
+  <!-- ==================== USER MODAL (FROSTED GLASS) ==================== -->
+  <div id="user-modal" class="fixed inset-0 bg-slate-900/40 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden">
+    <div class="glass-panel rounded-3xl max-w-sm w-full overflow-hidden shadow-2xl animate-in fade-in zoom-in-95">
       
-      <div class="px-5 py-4 border-b border-zinc-100 flex justify-between items-center">
-        <span class="font-heading font-semibold text-sm text-zinc-900">จัดการบัญชีผู้ใช้งาน</span>
-        <button onclick="closeUserModal()" class="text-zinc-400 hover:text-zinc-900 text-xs font-mono">✕</button>
+      <div class="px-6 py-4 bg-white/80 border-b border-slate-100 flex justify-between items-center">
+        <span class="font-heading font-bold text-sm text-slate-900">จัดการผู้ดูแลแปลงเกษตร</span>
+        <button onclick="closeUserModal()" class="text-slate-400 hover:text-slate-900 text-xs font-mono">✕</button>
       </div>
 
-      <!-- Tabs -->
-      <div class="flex border-b border-zinc-100 text-xs">
-        <button onclick="switchAuthTab('persona')" id="auth-tab-persona" class="flex-1 py-2.5 font-medium border-b-2 border-zinc-900 text-zinc-900">
-          สลับบทบาทสาธิต
-        </button>
-        <button onclick="switchAuthTab('login')" id="auth-tab-login" class="flex-1 py-2.5 font-medium border-b-2 border-transparent text-zinc-400 hover:text-zinc-900">
-          เข้าสู่ระบบ
-        </button>
-      </div>
-
-      <!-- Persona List -->
-      <div id="auth-content-persona" class="p-5 space-y-2.5 text-xs">
-        <button onclick="selectPersona('ส', 'นายสมคิด ใจดี', 'สวนตาเพิ่ม โคกหนองนา (พช. CDD-CS-207)')" class="w-full text-left p-3 rounded-xl border border-zinc-200 hover:border-zinc-900 hover:bg-zinc-50 transition flex items-center gap-3">
-          <div class="w-8 h-8 rounded-full bg-zinc-900 text-white font-medium flex items-center justify-center text-xs">ส</div>
+      <div class="p-6 space-y-3 text-xs">
+        <p class="text-slate-500 mb-2">เลือกสลับโปรไฟล์ผู้ใช้งานเพื่อดูมุมมองแดชบอร์ด:</p>
+        
+        <button onclick="selectPersona('ส', 'ลุงสมคิด ใจดี', 'สวนตาเพิ่ม โคกหนองนา')" class="w-full text-left p-3.5 rounded-2xl bg-white/80 hover:bg-white border border-white hover:border-emerald-500 transition flex items-center gap-3 shadow-sm">
+          <div class="w-9 h-9 rounded-xl bg-gradient-to-br from-emerald-600 to-teal-600 text-white font-bold flex items-center justify-center text-sm shadow">ส</div>
           <div>
-            <div class="font-semibold text-zinc-900">นายสมคิด ใจดี</div>
-            <div class="text-[11px] text-zinc-400">ปราชญ์ชาวบ้าน • แปลงยาว ฉะเชิงเทรา</div>
+            <div class="font-bold text-slate-900 text-sm">ลุงสมคิด ใจดี</div>
+            <div class="text-slate-500 text-[11px]">เจ้าของแปลง • ปราชญ์ชาวบ้าน อ.แปลงยาว</div>
           </div>
         </button>
 
-        <button onclick="selectPersona('พ', 'นายพิชัย นิลแก้ว', 'ศูนย์ประสานงานโคกหนองนา ฉะเชิงเทรา')" class="w-full text-left p-3 rounded-xl border border-zinc-200 hover:border-zinc-900 hover:bg-zinc-50 transition flex items-center gap-3">
-          <div class="w-8 h-8 rounded-full bg-zinc-200 text-zinc-800 font-medium flex items-center justify-center text-xs">พ</div>
+        <button onclick="selectPersona('ก', 'พี่กานต์ดาว ชัยชนะ', 'แปลงสาธิต Young Smart Farmer')" class="w-full text-left p-3.5 rounded-2xl bg-white/60 hover:bg-white border border-white hover:border-emerald-500 transition flex items-center gap-3 shadow-sm">
+          <div class="w-9 h-9 rounded-xl bg-slate-200 text-slate-800 font-bold flex items-center justify-center text-sm">ก</div>
           <div>
-            <div class="font-semibold text-zinc-900">นายพิชัย นิลแก้ว</div>
-            <div class="text-[11px] text-zinc-400">พัฒนากรชำนาญการ (พช. มท.)</div>
+            <div class="font-bold text-slate-900 text-sm">พี่กานต์ดาว ชัยชนะ</div>
+            <div class="text-slate-500 text-[11px]">คนดูแลแปลง • Young Smart Farmer</div>
           </div>
         </button>
 
-        <button onclick="selectPersona('ก', 'น.ส. กานต์ดาว ชัยชนะ', 'แปลงสาธิต Young Smart Farmer โคราช')" class="w-full text-left p-3 rounded-xl border border-zinc-200 hover:border-zinc-900 hover:bg-zinc-50 transition flex items-center gap-3">
-          <div class="w-8 h-8 rounded-full bg-zinc-200 text-zinc-800 font-medium flex items-center justify-center text-xs">ก</div>
+        <button onclick="selectPersona('จ', 'ป้าจำเนียร ใจดี', 'สวนตาเพิ่ม โคกหนองนา')" class="w-full text-left p-3.5 rounded-2xl bg-white/60 hover:bg-white border border-white hover:border-emerald-500 transition flex items-center gap-3 shadow-sm">
+          <div class="w-9 h-9 rounded-xl bg-slate-200 text-slate-800 font-bold flex items-center justify-center text-sm">จ</div>
           <div>
-            <div class="font-semibold text-zinc-900">น.ส. กานต์ดาว ชัยชนะ</div>
-            <div class="text-[11px] text-zinc-400">Young Smart Farmer (YSF)</div>
+            <div class="font-bold text-slate-900 text-sm">ป้าจำเนียร ใจดี</div>
+            <div class="text-slate-500 text-[11px]">สมาชิกครอบครัว • ตรวจสอบรอบให้น้ำ</div>
           </div>
-        </button>
-      </div>
-
-      <!-- Login Form -->
-      <div id="auth-content-login" class="p-5 space-y-3 text-xs hidden">
-        <div>
-          <label class="text-zinc-500 block mb-1">เบอร์โทรศัพท์ หรือ LINE ID:</label>
-          <input type="text" placeholder="08x-xxx-xxxx" class="w-full border border-zinc-200 rounded-lg p-2.5 text-zinc-900 focus:outline-none focus:border-zinc-900">
-        </div>
-        <button onclick="selectPersona('ส', 'นายสมคิด ใจดี', 'สวนตาเพิ่ม โคกหนองนา'); closeUserModal(); showToast('เข้าสู่ระบบสำเร็จ');" class="w-full py-2.5 bg-zinc-900 hover:bg-zinc-800 text-white rounded-lg font-medium transition mt-2">
-          เข้าสู่ระบบ (Sign In)
         </button>
       </div>
 
@@ -749,55 +983,57 @@
   </div>
 
   <!-- TOAST NOTIFICATION -->
-  <div id="toast" class="fixed bottom-6 right-6 bg-zinc-950 text-white px-4 py-2.5 rounded-lg shadow-lg text-xs font-medium transform translate-y-20 opacity-0 transition-all duration-200 z-50 flex items-center gap-2">
-    <span>✓</span> <span id="toast-msg">ข้อความ</span>
+  <div id="toast" class="fixed bottom-6 right-6 glass-panel text-slate-900 px-5 py-3 rounded-2xl shadow-xl text-xs font-bold transform translate-y-20 opacity-0 transition-all duration-200 z-50 flex items-center gap-2 border border-white">
+    <span class="text-emerald-600 text-base">✓</span> <span id="toast-msg">ข้อความ</span>
   </div>
 
-  <!-- ==================== JAVASCRIPT (MINIMAL & FAST) ==================== -->
+  <!-- ==================== JAVASCRIPT ==================== -->
   <script>
-    // 1. Tab Switcher
+    // Tab Switcher
     function switchTab(tabId) {
       document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
-      document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.className = 'tab-btn h-full border-b-2 border-transparent hover:text-zinc-900 px-2 transition flex items-center gap-1.5 whitespace-nowrap text-zinc-500';
-      });
+      document.querySelectorAll('.glass-tab').forEach(btn => btn.classList.remove('active'));
 
       const target = document.getElementById('tab-' + tabId);
       if (target) target.classList.remove('hidden');
 
       const activeBtn = document.getElementById('tab-btn-' + tabId);
-      if (activeBtn) {
-        activeBtn.className = 'tab-btn h-full border-b-2 border-zinc-950 text-zinc-950 font-semibold px-2 transition flex items-center gap-1.5 whitespace-nowrap';
-      }
+      if (activeBtn) activeBtn.classList.add('active');
     }
 
-    // 2. Chart Rendering (Minimal Style)
-    let minimalChart;
+    // Chart.js with Glassmorphic Gradient Styling
+    let glassChart;
     document.addEventListener('DOMContentLoaded', () => {
-      const ctx = document.getElementById('minimalChart').getContext('2d');
-      minimalChart = new Chart(ctx, {
+      const ctx = document.getElementById('glassChart').getContext('2d');
+      
+      const gradientWater = ctx.createLinearGradient(0, 0, 0, 250);
+      gradientWater.addColorStop(0, 'rgba(16, 185, 129, 0.25)');
+      gradientWater.addColorStop(1, 'rgba(16, 185, 129, 0.0)');
+
+      glassChart = new Chart(ctx, {
         type: 'line',
         data: {
-          labels: ['1 ก.ย.', '2 ก.ย.', '3 ก.ย.', '4 ก.ย.', '5 ก.ย.', '6 ก.ย.', 'วันนี้'],
+          labels: ['1 ก.ย.', '2 ก.ย.', '3 ก.ย.', '4 ก.ย.', '5 ก.ย.', '6 ก.ย.', 'วันนี้ (7 ก.ย.)'],
           datasets: [
             {
               label: 'ระดับน้ำในหนอง (cm)',
               data: [260, 258, 255, 251, 248, 246, 245.2],
-              borderColor: '#18181b',
-              backgroundColor: 'transparent',
-              borderWidth: 2,
-              tension: 0.2,
-              pointRadius: 3,
-              pointBackgroundColor: '#18181b',
+              borderColor: '#059669',
+              backgroundColor: gradientWater,
+              fill: true,
+              borderWidth: 3,
+              tension: 0.35,
+              pointRadius: 4,
+              pointBackgroundColor: '#059669',
               yAxisID: 'y'
             },
             {
               label: 'ความชื้นดิน (%)',
               data: [65, 62, 58, 55, 54, 53, 52.4],
-              borderColor: '#a1a1aa',
-              borderDash: [4, 4],
-              borderWidth: 1.5,
-              tension: 0.2,
+              borderColor: '#0284c7',
+              borderDash: [5, 5],
+              borderWidth: 2,
+              tension: 0.35,
               pointRadius: 0,
               yAxisID: 'y1'
             }
@@ -808,67 +1044,80 @@
           maintainAspectRatio: false,
           plugins: { legend: { display: false } },
           scales: {
-            x: { grid: { display: false }, ticks: { color: '#a1a1aa', font: { size: 10 } } },
-            y: { position: 'left', min: 100, max: 300, grid: { color: '#f4f4f5' }, ticks: { color: '#71717a', font: { size: 10 } } },
-            y1: { position: 'right', min: 0, max: 100, grid: { display: false }, ticks: { color: '#a1a1aa', font: { size: 10 } } }
+            x: { grid: { display: false }, ticks: { color: '#64748b', font: { size: 11 } } },
+            y: { position: 'left', min: 100, max: 300, grid: { color: 'rgba(0, 0, 0, 0.05)' }, ticks: { color: '#059669', font: { size: 11, weight: 'bold' } } },
+            y1: { position: 'right', min: 0, max: 100, grid: { display: false }, ticks: { color: '#0284c7', font: { size: 11 } } }
           }
         }
       });
     });
 
-    // 3. User Modal Control
+    // Modal Controls
     function openUserModal() { document.getElementById('user-modal').classList.remove('hidden'); }
     function closeUserModal() { document.getElementById('user-modal').classList.add('hidden'); }
-    function switchAuthTab(type) {
-      ['persona', 'login'].forEach(t => {
-        document.getElementById('auth-content-' + t).classList.add('hidden');
-        document.getElementById('auth-tab-' + t).className = 'flex-1 py-2.5 font-medium border-b-2 border-transparent text-zinc-400 hover:text-zinc-900';
-      });
-      document.getElementById('auth-content-' + type).classList.remove('hidden');
-      document.getElementById('auth-tab-' + type).className = 'flex-1 py-2.5 font-medium border-b-2 border-zinc-900 text-zinc-900';
-    }
 
     function selectPersona(initial, name, farmName) {
       document.getElementById('user-avatar').innerText = initial;
-      document.getElementById('user-name').innerText = name.split(' ')[0];
+      document.getElementById('user-name').innerText = name;
       document.getElementById('hero-farm-name').innerText = farmName;
       closeUserModal();
-      showToast('สลับบทบาท: ' + name);
+      showToast('สลับโปรไฟล์: ' + name);
     }
 
-    // 4. Demonstrations (LINE Simulation)
+    // Interactive LINE Alert Demos
     function demoNightAlert() {
+      document.getElementById('coop-db-val').innerText = '86';
+      document.getElementById('coop-db-val').className = 'font-heading text-3xl sm:text-4xl font-extrabold text-rose-600 tracking-tight animate-pulse';
+      document.getElementById('coop-status-badge').innerText = '🚨 สัตว์แตกตื่น!';
+      document.getElementById('coop-status-badge').className = 'text-rose-700 bg-rose-100 px-2 py-0.5 rounded-full text-[10px] font-bold';
+      document.getElementById('coop-status-sub').innerHTML = '<strong class="text-rose-600">86.4 dB</strong> มีเสียงแตกตื่นยามดึก คาดว่างูหรือสัตว์นักล่า!';
+
       const container = document.getElementById('dynamic-alert-bubble');
       container.innerHTML = `
-        <div class="bg-white p-4 rounded-xl border border-red-200 shadow-sm space-y-2 text-xs animate-in fade-in">
-          <div class="flex justify-between items-center text-red-600 text-[10px] font-mono border-b border-red-50 pb-1.5">
-            <span class="font-bold">ตรวจพบเสียงผิดปกติในเล้าไก่</span>
-            <span>02:15 น.</span>
+        <div class="bg-rose-50 border-2 border-rose-500 rounded-2xl overflow-hidden shadow-lg animate-bounce">
+          <div class="bg-rose-600 text-white px-3.5 py-2 flex justify-between items-center text-xs font-bold">
+            <span>🚨 ตรวจพบเสียงแตกตื่นในเล้าไก่!</span>
+            <span class="font-mono">02:15 น.</span>
           </div>
-          <div class="space-y-1 text-zinc-700 text-[11px]">
-            <div class="flex justify-between"><span>ความดัง:</span> <strong class="text-red-600 font-mono">86.4 dB</strong></div>
-            <div class="flex justify-between"><span>การวิเคราะห์:</span> <span class="text-zinc-500">สัตว์แตกตื่นยามค่ำคืน</span></div>
-          </div>
-          <div class="flex gap-2 pt-1">
-            <button onclick="switchTab('night')" class="flex-1 py-1.5 bg-zinc-900 text-white rounded text-[10px] font-medium">ดูกล้องสด</button>
-            <button onclick="showToast('เปิดไฟไล่สัตว์เรียบร้อย')" class="flex-1 py-1.5 bg-zinc-100 hover:bg-zinc-200 text-zinc-800 rounded text-[10px] font-medium">เปิดไฟไล่</button>
+          <div class="p-3.5 space-y-2 text-xs">
+            <div class="flex justify-between py-1 border-b border-rose-100">
+              <span class="text-slate-600">ความดังเสียง:</span>
+              <strong class="text-rose-700 font-mono font-bold">86.4 dB (แตกตื่น)</strong>
+            </div>
+            <div class="flex justify-between py-1 border-b border-rose-100">
+              <span class="text-slate-600">การวิเคราะห์:</span>
+              <strong class="text-rose-700">งู/สัตว์นักล่าบุกรุก</strong>
+            </div>
+            <div class="flex gap-2 pt-1">
+              <button onclick="switchTab('night')" class="flex-1 py-1.5 bg-slate-900 text-white rounded-xl text-xs font-bold shadow">
+                📹 ดูกล้องสด
+              </button>
+              <button onclick="showToast('เปิดไฟส่องสว่างไล่สัตว์เรียบร้อย')" class="flex-1 py-1.5 bg-rose-600 text-white rounded-xl text-xs font-bold shadow">
+                💡 เปิดไฟไล่
+              </button>
+            </div>
           </div>
         </div>
       `;
-      showToast('Push ข้อความเตือนภัยเข้า LINE แล้ว');
+      showToast('Push ข้อความเตือนภัยฉุกเฉินเข้า LINE แล้ว');
     }
 
     function demoDroughtAlert() {
       const container = document.getElementById('dynamic-alert-bubble');
       container.innerHTML = `
-        <div class="bg-white p-4 rounded-xl border border-amber-200 shadow-sm space-y-2 text-xs animate-in fade-in">
-          <div class="flex justify-between items-center text-amber-600 text-[10px] font-mono border-b border-amber-50 pb-1.5">
-            <span class="font-bold">เตือนภัย: น้ำหนองลดเร็ว</span>
-            <span>11:30 น.</span>
+        <div class="bg-amber-50 border-2 border-amber-500 rounded-2xl overflow-hidden shadow-lg">
+          <div class="bg-amber-500 text-white px-3.5 py-2 flex justify-between items-center text-xs font-bold">
+            <span>⚠️ เตือนภัย: น้ำในหนองลดลงเร็ว</span>
+            <span class="font-mono">11:30 น.</span>
           </div>
-          <p class="text-zinc-600 text-[11px]">
-            น้ำหนองเหลือ <strong>112 ซม. (37%)</strong> คาดการณ์ใช้ได้อีกเพียง <strong>18 วัน</strong> แนะนำชะลอการส่งน้ำและคลุมฟาง
-          </p>
+          <div class="p-3.5 space-y-2 text-xs">
+            <p class="text-slate-800 leading-relaxed">
+              ระดับน้ำในหนองลดเหลือ <strong>112 ซม. (37%)</strong> น้ำสำรองจะใช้ได้อีกเพียง <strong>18 วัน</strong>
+            </p>
+            <p class="text-amber-800 bg-amber-100/80 p-2 rounded-xl font-medium">
+              💡 แนะนำ: ชะลอการจ่ายน้ำเข้าคลองไส้ไก่ และคลุมฟางรักษาความชื้นโคนต้นไม้ทันที
+            </p>
+          </div>
         </div>
       `;
       showToast('ส่งข้อความเตือนน้ำลดเข้า LINE แล้ว');
@@ -877,26 +1126,32 @@
     function demoAwdAlert() {
       const container = document.getElementById('dynamic-alert-bubble');
       container.innerHTML = `
-        <div class="bg-white p-4 rounded-xl border border-zinc-200 shadow-sm space-y-2 text-xs animate-in fade-in">
-          <div class="flex justify-between items-center text-zinc-900 text-[10px] font-mono border-b border-zinc-100 pb-1.5">
-            <span class="font-bold">คำแนะนำรอบแกล้งข้าว (AWD)</span>
-            <span>วันนี้</span>
+        <div class="bg-emerald-50 border-2 border-emerald-500 rounded-2xl overflow-hidden shadow-lg">
+          <div class="bg-emerald-600 text-white px-3.5 py-2 flex justify-between items-center text-xs font-bold">
+            <span>🌾 คำแนะนำรอบแกล้งข้าว (AWD)</span>
+            <span class="font-mono">วันนี้</span>
           </div>
-          <p class="text-zinc-600 text-[11px]">
-            น้ำลดถึง <strong>-15 ซม. ใต้ผิวดิน</strong> รากข้าวหยั่งลึกแล้ว แนะนำเปิดน้ำเข้านาขัง 5 ซม. แล้วปิดทางน้ำ
-          </p>
+          <div class="p-3.5 space-y-2 text-xs">
+            <p class="text-slate-800 leading-relaxed">
+              น้ำในแปลงนาลดถึง <strong>-15 ซม. ใต้ผิวดิน</strong> รากข้าวหยั่งลึกแข็งแรงแล้ว
+            </p>
+            <p class="text-emerald-800 bg-emerald-100/80 p-2 rounded-xl font-medium">
+              ✅ ขั้นตอน: เปิดน้ำจากหนองเข้านาขัง 5 ซม. เพื่อเริ่มรอบใหม่
+            </p>
+          </div>
         </div>
       `;
       showToast('ส่งคำแนะนำแกล้งข้าวเข้า LINE แล้ว');
     }
 
-    // 5. Toast & Notifications
+    // Toast Notification
     function showToast(msg) {
       const toast = document.getElementById('toast');
       document.getElementById('toast-msg').innerText = msg;
       toast.classList.remove('translate-y-20', 'opacity-0');
       setTimeout(() => { toast.classList.add('translate-y-20', 'opacity-0'); }, 2500);
     }
+
     function toggleNotificationDropdown() { document.getElementById('notif-dropdown').classList.toggle('hidden'); }
     function clearNotifs() {
       document.getElementById('notif-badge').style.display = 'none';
@@ -904,7 +1159,7 @@
       showToast('ล้างการแจ้งเตือนแล้ว');
     }
 
-    // 6. Search & Farm Change
+    // Log Table Filter
     function filterLogs() {
       const val = document.getElementById("logSearch").value.toUpperCase();
       const rows = document.getElementById("tableBody").getElementsByTagName("tr");
@@ -912,13 +1167,15 @@
         r.style.display = r.textContent.toUpperCase().includes(val) ? "" : "none";
       }
     }
+
+    // Farm Switcher
     function changeFarm(id) {
       const map = {
-        farm1: 'สวนตาเพิ่ม โคกหนองนา (พช. CDD-CS-207)',
-        farm2: 'ศูนย์เรียนรู้กสิกรรมธรรมชาติ อ.แปลงยาว',
-        farm3: 'แปลงสาธิต Young Smart Farmer โคราช'
+        farm1: 'สวนตาเพิ่ม (แปลงนา & หนองน้ำหลัก)',
+        farm2: 'โซนผลไม้ยกร่อง & พืชผัก 5 ระดับ',
+        farm3: 'โซนเล้าไก่ไข่ & ปศุสัตว์ริมคลองไส้ไก่'
       };
-      document.getElementById('hero-farm-name').innerText = map[id] || 'แปลงโคกหนองนา';
+      document.getElementById('hero-farm-name').innerText = map[id] || 'สวนตาเพิ่ม โคกหนองนา';
       showToast('สลับแปลง: ' + map[id]);
     }
   </script>
