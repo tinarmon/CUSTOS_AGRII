@@ -108,10 +108,10 @@
     <!-- Right: Minimalist Status, Notification & User -->
     <div class="flex items-center gap-3">
       
-      <!-- Target Sites Badge -->
-      <div class="hidden lg:flex items-center gap-2 text-xs text-zinc-500 bg-zinc-100/80 px-3 py-1 rounded-full border border-zinc-200/60 font-medium">
-        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-        <span>ฐานเป้าหมาย <strong>41,798 แปลง</strong> (พช. มท.)</span>
+      <!-- Sensor Status Badge -->
+      <div class="hidden lg:flex items-center gap-2 text-xs text-zinc-600 bg-zinc-100/80 px-3 py-1 rounded-full border border-zinc-200 font-medium">
+        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+        <span>สถานะเซนเซอร์: <strong class="text-zinc-900">ออนไลน์ครบ 4 จุด (ปกติ)</strong></span>
       </div>
 
       <!-- Notification Bell -->
@@ -646,6 +646,47 @@
     </div>
 
   </main>
+
+  <!-- ==================== MINIMAL FOOTER / FOOTBAR ==================== -->
+  <footer class="bg-white border-t border-zinc-200 mt-16 py-10 text-zinc-500 text-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 pb-8 border-b border-zinc-100">
+        <div>
+          <div class="flex items-center gap-2 text-zinc-900 font-semibold mb-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+            <span>CUSTOS AGRII</span>
+          </div>
+          <p class="text-zinc-500 leading-relaxed text-[11px]">
+            ระบบเฝ้าระวังและเตือนภัยโคกหนองนาอัจฉริยะ ต้นทุนต่ำเพื่อเกษตรกรไทย (ESP32 + Solar IoT)
+          </p>
+        </div>
+        <div>
+          <div class="text-zinc-900 font-semibold mb-2">สถานะฮาร์ดแวร์</div>
+          <ul class="space-y-1 text-[11px]">
+            <li>• โหนดบ่อหนอง: 🟢 ปกติ (245 cm)</li>
+            <li>• โหนดแปลงนา: 🟢 ปกติ (-15 cm)</li>
+            <li>• โหนดเล้าไก่: 🟢 เฝ้าระวัง (42 dB)</li>
+          </ul>
+        </div>
+        <div>
+          <div class="text-zinc-900 font-semibold mb-2">ข้อมูลขับเคลื่อนระดับประเทศ</div>
+          <p class="text-[11px] text-zinc-500 mb-1">
+            พร้อมขยายผล <strong>41,798 แปลงต้นแบบ</strong> (พช. มท.)
+          </p>
+          <a href="https://chachoengsao.cdd.go.th/th/file/get/file/207.2025121133f374b63d4fae40e3f919c9857696f5161742.pdf" target="_blank" rel="noopener noreferrer" class="text-zinc-900 underline text-[11px]">
+            ดาวน์โหลดเอกสารอ้างอิง พช. (PDF)
+          </a>
+        </div>
+      </div>
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-zinc-400">
+        <span>© 2026 Custos Agrii • โคก หนอง นา Edition</span>
+        <div class="flex items-center gap-4">
+          <a href="https://github.com/tinarmon/CUSTOS_AGRII" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-900">GitHub</a>
+          <button onclick="window.scrollTo({ top: 0, behavior: 'smooth' })" class="hover:text-zinc-900">ขึ้นบนสุด ↑</button>
+        </div>
+      </div>
+    </div>
+  </footer>
 
   <!-- ==================== USER MODAL (MINIMAL) ==================== -->
   <div id="user-modal" class="fixed inset-0 bg-zinc-950/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
